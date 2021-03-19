@@ -16,11 +16,8 @@ class Customization extends Model
         $request->validate([
 
             "name" => "required|string",
-
             "size" => "required|integer|numeric|gt:0",
-
             "location" => "required|string",
-
             "price" => "required|numeric|gt:0"
 
         ]);
