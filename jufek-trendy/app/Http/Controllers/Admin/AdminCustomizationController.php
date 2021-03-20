@@ -22,6 +22,18 @@ class AdminCustomizationController extends Controller
             return $next($request);
         });
     }
+
+    
+    public function menu()
+    {
+        $data = []; // to be sent to the view
+        $data["routes"] = [
+            ["route" => "customization.create", "tittle" => __('messages.create_customization')],
+            ["route" => "customization.list", "tittle" => __('messages.list_customization')],
+        ];
+
+        return view('admin.admin_menu')->with("data", $data);
+    }
     
     public function show($id)
     {

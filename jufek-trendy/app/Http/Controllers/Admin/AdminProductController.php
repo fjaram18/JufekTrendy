@@ -19,7 +19,19 @@ class AdminProductController extends Controller
             }
 
             return $next($request);
+
         });
+    }
+
+    public function menu()
+    {
+        $data = []; // to be sent to the view
+        $data["routes"] = [
+            ["route" => "product.create", "tittle" => __('messages.create_products')],
+            ["route" => "product.list", "tittle" => __('messages.list_products')],
+        ];
+
+        return view('admin.admin_menu')->with("data", $data);
     }
 
     public function create()
