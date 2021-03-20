@@ -1,88 +1,48 @@
 <?php
 //Autor: Katherin Valencia
 
-namespace App\Models;
+namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+use App\Models\Order;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class Order extends Model
+class OrderController extends Controller
 {
-    use HasFactory;
-
-    //attributes order_date, total, shipping_date, order_state, payment_type
-    protected $fillable = [
-        'order_date','total', 'shipping_date', 'order_state', 'payment_type'
-    ];
-
-    public function getId()
+    public function show($id)
     {
-        return $this->attributes['id'];
-    }
-    
-    public function setId($id)
-    {
-        $this->attributes['id'] = $id;
+        $data = []; 
+        $data["orders"] = Order::all();
+
+        return view('order.show')->with("data",$data);
     }
 
-    public function getDate()
+    public function create($id)
     {
-        return $this->attributes['order_date'];
+        $order = Order::findOrFail($id);
+
+        return view('order.create')->with("data",$order);
     }
 
-    public function setDate($order_date)
+    public function list()
     {
-        $this->attributes['order_date'] = $order_date;
+        $data = []; 
+        $data["orders"] = Order::all();
+
+        return view('order.list')->with("data",$data);
     }
 
-    public function getTotal()
+    public function save(Request $request)
     {
-        return $this->attributes['total'];
+        Order::validate($request);
+        
+        return back()->with('success', 'Order successfully created');
     }
 
-    public function setTotal($total)
+    public function destroy($id)
     {
-        $this->attributes['total'] = $total;
-    }
+        $orders = Order::findOrFail($id);
+        $orders->delete();
 
-    public function getShippingDate()
-    {
-        return $this->attributes['shipping_date'];
-    }
-
-    public function setShippindDate($shipping_date)
-    {
-        $this->attributes['shipping_date'] = $shipping_date;
-    }
-
-    public function getState()
-    {
-        return $this->attributes['order_state'];
-    }
-
-    public function setState($order_state)
-    {
-        $this->attributes['order_state'] = $order_state;
-    }
-
-    public function getPayment()
-    {
-        return $this->attributes['payment_type'];
-    }
-
-    public function setPayment($payment_type)
-    {
-        $this->attributes['payment_type'] = $payment_type;
-    }
-
-    public static function validate(Request $request)
-    {
-        $request->validate([
-            "total" => "required",
-            "order_date" => "required",
-            "shipping_date" => "required",
-            "order_state" => "required",
-            "payment_type" => "required"
-        ]);
+        return back()->with('success', 'Order successfully deleted');
+        return redirect()->route('order.list');
     }
 }
