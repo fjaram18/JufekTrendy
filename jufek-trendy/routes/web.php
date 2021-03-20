@@ -38,3 +38,8 @@ Route::post('/product/save', [App\Http\Controllers\Admin\AdminProductController:
 Route::get('/product/list', [App\Http\Controllers\Admin\AdminProductController::class, 'list'])->name("product.list");
 Route::get('/product/delete/{id}', [App\Http\Controllers\Admin\AdminProductController::class, 'delete'])->name("product.delete");
 
+// Routes Admin Order
+Route::get('/order/show/{id}', [App\Http\Controllers\Admin\AdminOrderController::class, 'show'])->name("order.show");
+Route::get('/order/create', [App\Http\Controllers\Admin\AdminOrderController::class, 'create'])->name("order.create");
+Route::post('/order/save', [App\Http\Controllers\Admin\AdminOrderController::class, 'save'])->name("order.save");
+Route::get('/order/list', [App\Http\Controllers\Admin\AdminOrderController::class, 'list'])->name("order.list");
