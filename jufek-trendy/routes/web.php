@@ -18,17 +18,20 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name("ho
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home/admin', [App\Http\Controllers\Admin\AdminHomeController::class, 'index'])->name('admin.home');
 
+
 // Auth
 Auth::routes();
 
 // Routes Admin Customization
+Route::get('/customization/menu', [App\Http\Controllers\Admin\AdminCustomizationController::class, 'menu'])->name("customization.menu");
 Route::get('/customization/show/{id}', [App\Http\Controllers\Admin\AdminCustomizationController::class, 'show'])->name('customization.show');
 Route::get('/customization/create', [App\Http\Controllers\Admin\AdminCustomizationController::class, 'create'])->name('customization.create');
-Route::get('/customization/save', [App\Http\Controllers\Admin\AdminCustomizationController::class, 'save'])->name('customization.save');
+Route::post('/customization/save', [App\Http\Controllers\Admin\AdminCustomizationController::class, 'save'])->name('customization.save');
 Route::get('/customization/list', [App\Http\Controllers\Admin\AdminCustomizationController::class, 'list'])->name('customization.list');
 Route::get('/customization/delete/{id}', [App\Http\Controllers\Admin\AdminCustomizationController::class, 'delete'])->name('customization.delete');
 
 // Routes Admin Product
+Route::get('/product/menu', [App\Http\Controllers\Admin\AdminProductController::class, 'menu'])->name("product.menu");
 Route::get('/product/show/{id}', [App\Http\Controllers\Admin\AdminProductController::class, 'show'])->name("product.show");
 Route::get('/product/create', [App\Http\Controllers\Admin\AdminProductController::class, 'create'])->name("product.create");
 Route::post('/product/save', [App\Http\Controllers\Admin\AdminProductController::class, 'save'])->name("product.save");
