@@ -43,3 +43,11 @@ Route::get('/order/show/{id}', [App\Http\Controllers\Admin\AdminOrderController:
 Route::get('/order/create', [App\Http\Controllers\Admin\AdminOrderController::class, 'create'])->name("order.create");
 Route::post('/order/save', [App\Http\Controllers\Admin\AdminOrderController::class, 'save'])->name("order.save");
 Route::get('/order/list', [App\Http\Controllers\Admin\AdminOrderController::class, 'list'])->name("order.list");
+Route::get('/order/delete/{id}', [App\Http\Controllers\Admin\AdminOrderController::class, 'delete'])->name("order.delete");
+
+// Routes Admin Category
+Route::get('/category/show/{id}', [App\Http\Controllers\Admin\AdminCategoryController::class, 'show'])->name("category.show");
+Route::get('/category/create', [App\Http\Controllers\Admin\AdminCategoryController::class, 'create'])->name("category.create");
+Route::post('/category/save', [App\Http\Controllers\Admin\AdminCategoryController::class, 'save'])->name("category.save");
+Route::get('/category/list', [App\Http\Controllers\Admin\AdminCategoryController::class, 'list'])->name("category.list");
+Route::get('/category/delete/{id}', [App\Http\Controllers\Admin\AdminCategoryController::class, 'delete'])->name("category.delete");
