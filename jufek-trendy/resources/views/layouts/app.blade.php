@@ -26,11 +26,11 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                     @guest
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('login') }}"> @lang('messages.login')</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('register') }}"> @lang('messages.register') </a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('login') }}"> {{__('messages.login')}}</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('register') }}"> {{__('messages.register')}} </a></li>
                         @else
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"> @lang('messages.logout') </a></li>
+                                                     document.getElementById('logout-form').submit();"> {{__('messages.logout')}} </a></li>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
@@ -51,7 +51,7 @@
                 <div class="row">
                     <!-- Footer Location-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4"> @lang('messages.location') </h4>
+                        <h4 class="text-uppercase mb-4"> {{__('messages.location')}} </h4>
                         <p class="lead mb-0">
                             Cl. 10 ## 36 - 14 
                             <br />
@@ -60,7 +60,7 @@
                     </div>
                     <!-- Footer Social Icons-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">@lang('messages.around') </h4>
+                        <h4 class="text-uppercase mb-4">{{__('messages.around')}} </h4>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
@@ -68,9 +68,9 @@
                     </div>
                     <!-- Footer About Text-->
                     <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4"> @lang('messages.aboutJufek') </h4>
+                        <h4 class="text-uppercase mb-4"> {{__('messages.aboutJufek')}} </h4>
                         <p class="lead mb-0">
-                            @lang('messages.aboutJufekMessage')
+                            {{__('messages.aboutJufekMessage')}}
                         </p>
                     </div>
                 </div>

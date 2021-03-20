@@ -1,24 +1,37 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Exception;
 
-class ProductController extends Controller
+class AdminProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            if(Auth::user()->getRole()=="user"){
+                return redirect()->route('home.index');
+            }
+
+            return $next($request);
+        });
+    }
 
     public function create()
     {
-        return view('product.create');
+        return view('admin.product.create');
     }
 
     public function list() 
     {
         $data = []; //to be sent to the view
         $data["products"] = Product::all()->sortBy('id');
-        return view('product.list')->with("data", $data);
+        return view('admin.product.list')->with("data", $data);
     }
 
     public function show($id)
@@ -29,7 +42,7 @@ class ProductController extends Controller
             $product = Product::findOrFail($id);
             $data["product"] = $product;
     
-            return view('product.show')->with("data", $data);
+            return view('admin.product.show')->with("data", $data);
 
         } catch (Exception $e){
 
@@ -55,6 +68,6 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->delete();
 
-        return redirect()->route('product.list')->with('eliminate', 'Producto eliminado');
+        return redirect()->route('admin.product.list')->with('eliminate', 'Producto eliminado');
     }
 }

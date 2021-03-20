@@ -10,9 +10,4 @@ class HomeController extends Controller
     {
         return view('home.index');
     }
-
-    public function home()
-    {
-        return redirect()->route('home.index');
-    }
 }

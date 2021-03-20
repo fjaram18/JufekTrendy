@@ -1,14 +1,27 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Customization;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Exception;
 
-class CustomizationController extends Controller
-
+class AdminCustomizationController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            if(Auth::user()->getRole()=="user"){
+                return redirect()->route('home.index');
+            }
+
+            return $next($request);
+        });
+    }
     
     public function show($id)
     {
@@ -19,7 +32,7 @@ class CustomizationController extends Controller
             $data["title"] = $customization->getName();
             $data["customization"] = $customization;
             
-            return view('customization.show')->with("data", $data);
+            return view('admin.customization.show')->with("data", $data);
 
         } catch (Exception $e){
 
@@ -34,7 +47,7 @@ class CustomizationController extends Controller
         $data = []; //to be sent to the view
         $data["title"] = "Create customization";
 
-        return view('customization.create')->with("data", $data);
+        return view('admin.customization.create')->with("data", $data);
     }
 
 
@@ -52,7 +65,7 @@ class CustomizationController extends Controller
         try {
 
             Customization::destroy($id);
-            return redirect()->route('customization.list');
+            return redirect()->route('admin.customization.list');
 
         } catch (Exception $e){
 
@@ -68,6 +81,6 @@ class CustomizationController extends Controller
         $customizations = Customization::all();
         $data["customizations"] = $customizations;
 
-        return view('customization.list')->with("data", $data);
+        return view('admin.customization.list')->with("data", $data);
     }
 }
