@@ -14,6 +14,7 @@ return [
     'customization' => 'Customization',
     'order' => 'Order',
     'category' => 'Category',
+    'item' => 'Item',
     'create_products' => 'Create Products',
     'list_products' => 'List Products',
     'create_customization' => 'Create Customization',
@@ -22,6 +23,8 @@ return [
     'list_orders' => 'List Orders',
     'create_category' => 'Create Category',
     'list_categories' => 'List Categories',
+    'create_item' => 'Create Item',
+    'list_items' => 'List Item',
     
 
 ];

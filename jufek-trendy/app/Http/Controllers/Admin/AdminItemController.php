@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Product;
+use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Exception;
 
-class AdminProductController extends Controller
+class AdminItemController extends Controller
 {
     public function __construct()
     {
@@ -27,8 +27,8 @@ class AdminProductController extends Controller
     {
         $data = []; // to be sent to the view
         $data["routes"] = [
-            ["route" => "product.create", "tittle" => __('messages.create_products')],
-            ["route" => "product.list", "tittle" => __('messages.list_products')],
+            ["route" => "item.create", "tittle" => __('messages.create_item')],
+            ["route" => "item.list", "tittle" => __('messages.list_items')],
         ];
 
         return view('admin.admin_menu')->with("data", $data);
@@ -36,14 +36,14 @@ class AdminProductController extends Controller
 
     public function create()
     {
-        return view('admin.product.create');
+        return view('admin.item.create');
     }
 
     public function list() 
     {
         $data = []; //to be sent to the view
-        $data["products"] = Product::all()->sortBy('id');
-        return view('admin.product.list')->with("data", $data);
+        $data["items"] = Item::all()->sortBy('id');
+        return view('admin.item.list')->with("data", $data);
     }
 
     public function show($id)
@@ -51,10 +51,10 @@ class AdminProductController extends Controller
         try {
 
             $data = []; //to be sent to the view
-            $product = Product::findOrFail($id);
-            $data["product"] = $product;
+            $item = Item::findOrFail($id);
+            $data["item"] = $item;
     
-            return view('admin.product.show')->with("data", $data);
+            return view('admin.item.show')->with("data", $data);
 
         } catch (Exception $e){
 
@@ -67,19 +67,19 @@ class AdminProductController extends Controller
 
     public function save(Request $request)
     {
-        Product::validate($request);
-        Product::create($request->only(["name", "size", "stock", "price", "image", "description"]));
+        Item::validate($request);
+        Item::create($request->only(["amount","subtotal"]));
 
-        return back()->with('success', 'Product successfully created');
+        return back()->with('success', 'Item successfully created');
 
     }
 
     public function delete($id)
     {
 
-        $product = Product::find($id);
-        $product->delete();
+        $item = Item::find($id);
+        $item->delete();
 
-        return redirect()->route('admin.product.list')->with('eliminate', 'Product successfully deleted');
+        return redirect()->route('admin.item.list')->with('eliminate', 'Item successfully deleted');
     }
 }

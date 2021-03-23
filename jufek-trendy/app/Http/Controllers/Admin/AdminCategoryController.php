@@ -1,10 +1,10 @@
 <?php
 //Autor: Katherin Valencia
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\category;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Exception;
@@ -28,8 +28,8 @@ class AdminCategoryController extends Controller
     {
         $data = []; 
         $data["routes"] = [
-            ["route" => "category.create", "tittle" => __('messages.create_categorys')],
-            ["route" => "category.list", "tittle" => __('messages.list_categorys')],
+            ["route" => "category.create", "tittle" => __('messages.create_category')],
+            ["route" => "category.list", "tittle" => __('messages.list_categories')],
         ];
 
         return view('admin.admin_menu')->with("data", $data);
@@ -53,11 +53,9 @@ class AdminCategoryController extends Controller
 
     }
 
-    public function create($id)
+    public function create()
     {
-        $category = Category::findOrFail($id);
-
-        return view('category.create')->with("data",$category);
+        return view('admin.category.create');
     }
 
     public function list()
@@ -65,7 +63,7 @@ class AdminCategoryController extends Controller
         $data = []; 
         $data["category"] = Category::all();
 
-        return view('category.list')->with("data",$data);
+        return view('admin.category.list')->with("data",$data);
     }
 
     public function save(Request $request)

@@ -1,7 +1,7 @@
 <?php
 //Autor: Katherin Valencia
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Exception;
 
-class OrderController extends Controller
+class AdminOrderController extends Controller
 {
     public function __construct()
     {
@@ -28,7 +28,7 @@ class OrderController extends Controller
     {
         $data = []; 
         $data["routes"] = [
-            ["route" => "order.create", "tittle" => __('messages.create_orders')],
+            ["route" => "order.create", "tittle" => __('messages.create_order')],
             ["route" => "order.list", "tittle" => __('messages.list_orders')],
         ];
 
@@ -53,11 +53,9 @@ class OrderController extends Controller
 
     }
 
-    public function create($id)
+    public function create()
     {
-        $order = Order::findOrFail($id);
-
-        return view('order.create')->with("data",$order);
+        return view('admin.order.create');
     }
 
     public function list()
@@ -65,7 +63,7 @@ class OrderController extends Controller
         $data = []; 
         $data["orders"] = Order::all();
 
-        return view('order.list')->with("data",$data);
+        return view('admin.order.list')->with("data",$data);
     }
 
     public function save(Request $request)

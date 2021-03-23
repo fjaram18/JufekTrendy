@@ -39,6 +39,7 @@ Route::get('/product/list', [App\Http\Controllers\Admin\AdminProductController::
 Route::get('/product/delete/{id}', [App\Http\Controllers\Admin\AdminProductController::class, 'delete'])->name("product.delete");
 
 // Routes Admin Order
+Route::get('/order/menu', [App\Http\Controllers\Admin\AdminOrderController::class, 'menu'])->name("order.menu");
 Route::get('/order/show/{id}', [App\Http\Controllers\Admin\AdminOrderController::class, 'show'])->name("order.show");
 Route::get('/order/create', [App\Http\Controllers\Admin\AdminOrderController::class, 'create'])->name("order.create");
 Route::post('/order/save', [App\Http\Controllers\Admin\AdminOrderController::class, 'save'])->name("order.save");
@@ -46,8 +47,17 @@ Route::get('/order/list', [App\Http\Controllers\Admin\AdminOrderController::clas
 Route::get('/order/delete/{id}', [App\Http\Controllers\Admin\AdminOrderController::class, 'delete'])->name("order.delete");
 
 // Routes Admin Category
+Route::get('/category/menu', [App\Http\Controllers\Admin\AdminCategoryController::class, 'menu'])->name("category.menu");
 Route::get('/category/show/{id}', [App\Http\Controllers\Admin\AdminCategoryController::class, 'show'])->name("category.show");
 Route::get('/category/create', [App\Http\Controllers\Admin\AdminCategoryController::class, 'create'])->name("category.create");
 Route::post('/category/save', [App\Http\Controllers\Admin\AdminCategoryController::class, 'save'])->name("category.save");
 Route::get('/category/list', [App\Http\Controllers\Admin\AdminCategoryController::class, 'list'])->name("category.list");
 Route::get('/category/delete/{id}', [App\Http\Controllers\Admin\AdminCategoryController::class, 'delete'])->name("category.delete");
+
+// Routes Admin Item
+Route::get('/item/menu', [App\Http\Controllers\Admin\AdminItemController::class, 'menu'])->name("item.menu");
+Route::get('/item/show/{id}', [App\Http\Controllers\Admin\AdminItemController::class, 'show'])->name("item.show");
+Route::get('/item/create', [App\Http\Controllers\Admin\AdminItemController::class, 'create'])->name("item.create");
+Route::post('/item/save', [App\Http\Controllers\Admin\AdminItemController::class, 'save'])->name("item.save");
+Route::get('/item/list', [App\Http\Controllers\Admin\AdminItemController::class, 'list'])->name("item.list");
+Route::get('/item/delete/{id}', [App\Http\Controllers\Admin\AdminItemController::class, 'delete'])->name("item.delete");

@@ -22,7 +22,6 @@ class CreateCategoriesTable extends Migration
             $table->bigIncrements('id');
             $table->text('name');
             $table->text('description')->nullable();
-            $table->foreignId('product_id')->references('id')->on('products');
             $table->timestamps();
         });
     }
