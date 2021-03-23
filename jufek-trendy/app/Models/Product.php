@@ -97,4 +97,19 @@ class Product extends Model
     {
         $this->attributes['description'] = $description;
     }
+
+    public function items()
+    {
+        return $this->hasMany(Item::class);
+    }
+
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
+    }
+
+    public function customizations()
+    {
+        return $this->hasMany(Customization::class);
+    }
 }

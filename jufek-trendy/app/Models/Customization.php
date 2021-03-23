@@ -72,4 +72,14 @@ class Customization extends Model
     {
         $this->attributes['price'] = $price;
     }
+
+    public function prodcuts()
+    {
+        return $this->hasMany(prodcut::class);
+    }
+
+    public function items()
+    {
+        return $this->hasMany(Item::class);
+    }
 }
