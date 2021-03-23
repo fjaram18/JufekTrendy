@@ -1,12 +1,13 @@
 <?php
+//Autor: Katherin Valencia
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductsTable extends Migration
+class CreateCategoriesTable extends Migration
 {
-
+    
 /**
  * Run the migrations.
  *
@@ -16,16 +17,12 @@ class CreateProductsTable extends Migration
     public function up()
     {
 
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
 
             $table->bigIncrements('id');
             $table->text('name');
-            $table->text('size');
-            $table->integer('stock');
-            $table->float('price');
-            $table->text('image')->nullable();
             $table->text('description')->nullable();
-            $table->foreignId('category_id')->references('id')->on('categories');
+            $table->foreignId('product_id')->references('id')->on('products');
             $table->timestamps();
         });
     }
@@ -38,7 +35,7 @@ class CreateProductsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('categories');
     }
 
 }

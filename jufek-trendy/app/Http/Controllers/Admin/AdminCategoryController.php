@@ -4,12 +4,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Order;
+use App\Models\category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Exception;
 
-class OrderController extends Controller
+class AdminCategoryController extends Controller
 {
     public function __construct()
     {
@@ -28,8 +28,8 @@ class OrderController extends Controller
     {
         $data = []; 
         $data["routes"] = [
-            ["route" => "order.create", "tittle" => __('messages.create_orders')],
-            ["route" => "order.list", "tittle" => __('messages.list_orders')],
+            ["route" => "category.create", "tittle" => __('messages.create_categorys')],
+            ["route" => "category.list", "tittle" => __('messages.list_categorys')],
         ];
 
         return view('admin.admin_menu')->with("data", $data);
@@ -40,10 +40,10 @@ class OrderController extends Controller
         try {
 
             $data = []; 
-            $order = Order::findOrFail($id);
-            $data["order"] = $order;
+            $category = Category::findOrFail($id);
+            $data["category"] = $category;
     
-            return view('admin.order.show')->with("data", $data);
+            return view('admin.category.show')->with("data", $data);
 
         } catch (Exception $e){
 
@@ -55,31 +55,31 @@ class OrderController extends Controller
 
     public function create($id)
     {
-        $order = Order::findOrFail($id);
+        $category = Category::findOrFail($id);
 
-        return view('order.create')->with("data",$order);
+        return view('category.create')->with("data",$category);
     }
 
     public function list()
     {
         $data = []; 
-        $data["orders"] = Order::all();
+        $data["category"] = Category::all();
 
-        return view('order.list')->with("data",$data);
+        return view('category.list')->with("data",$data);
     }
 
     public function save(Request $request)
     {
-        Order::validate($request);
+        Category::validate($request);
         
-        return back()->with('success', 'Order successfully created');
+        return back()->with('success', 'category successfully created');
     }
 
     public function delete($id)
     {
-        $order = Order::findOrFail($id);
-        $order->delete();
+        $category = Category::findOrFail($id);
+        $category->delete();
 
-        return redirect()->route('admin.order.list')->with('success', 'Order successfully deleted');
+        return redirect()->route('admin.category.list')->with('success', 'category successfully deleted');
     }
 }
