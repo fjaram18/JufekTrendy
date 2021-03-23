@@ -27,8 +27,8 @@ class AdminItemController extends Controller
     {
         $data = []; // to be sent to the view
         $data["routes"] = [
-            ["route" => "item.create", "tittle" => __('messages.create_item')],
-            ["route" => "item.list", "tittle" => __('messages.list_items')],
+            ["route" => "admin.item.create", "tittle" => __('messages.create_item')],
+            ["route" => "admin.item.list", "tittle" => __('messages.list_items')],
         ];
 
         return view('admin.admin_menu')->with("data", $data);

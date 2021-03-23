@@ -28,8 +28,8 @@ class AdminOrderController extends Controller
     {
         $data = []; 
         $data["routes"] = [
-            ["route" => "order.create", "tittle" => __('messages.create_order')],
-            ["route" => "order.list", "tittle" => __('messages.list_orders')],
+            ["route" => "admin.order.create", "tittle" => __('messages.create_order')],
+            ["route" => "admin.order.list", "tittle" => __('messages.list_orders')],
         ];
 
         return view('admin.admin_menu')->with("data", $data);

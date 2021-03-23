@@ -3,20 +3,20 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\Order;
+use App\Models\Product;
 use Exception;
 
-class OrderController extends Controller
+class ProductController extends Controller
 {
     public function show($id)
     {
         try {
 
             $data = []; 
-            $order = Order::findOrFail($id);
-            $data["order"] = $order;
+            $product = Product::findOrFail($id);
+            $data["product"] = $product;
     
-            return view('order.show')->with("data", $data);
+            return view('product.show')->with("data", $data);
 
         } catch (Exception $e){
 
@@ -29,8 +29,8 @@ class OrderController extends Controller
     public function list()
     {
         $data = []; 
-        $data["orders"] = Order::all();
+        $data["products"] = Product::all();
 
-        return view('order.list')->with("data",$data);
+        return view('product.list')->with("data",$data);
     }
 }
