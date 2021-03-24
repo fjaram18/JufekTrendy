@@ -14,6 +14,7 @@ class ProductController extends Controller
 
             $data = []; 
             $product = Product::findOrFail($id);
+            $data["title"] = $product->getName();
             $data["product"] = $product;
     
             return view('product.show')->with("data", $data);
@@ -29,7 +30,13 @@ class ProductController extends Controller
     public function list()
     {
         $data = []; 
-        $data["products"] = Product::all();
+        $data["title"] = "Avaible Products";
+        $products = Product::all();
+        $listProducts = array();
+        foreach ($products as $product) { //indizamos la lista de productos
+            $listProducts[$product->getId()] = $product;
+        }
+        $data["products"] = $listProducts;
 
         return view('product.list')->with("data",$data);
     }

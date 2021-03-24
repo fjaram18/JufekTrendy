@@ -16,6 +16,7 @@ class CartController extends Controller
         $products = Product::all();
         $listProducts = array();
         $listProductsInCart = array();
+        $listAmountsInCart = array();
         $priceTotal = 0;
         foreach ($products as $product) { //indizamos la lista de productos
             $listProducts[$product->getId()] = $product;
@@ -25,23 +26,30 @@ class CartController extends Controller
             foreach ($listProducts as $key => $product) {
                 if (in_array($key, array_keys($ids))) {
                     $listProductsInCart[$key] = $product;
-                    $priceTotal = $priceTotal + $product->getPrice();
+                    $listAmountsInCart[$key] = $ids[$key];
+                    $priceTotal = $priceTotal + $product->getPrice() * intval($ids[$key]);
                 }
             }
         }
-
         $data["title"] = "Shopping Cart";
         $data["products"] = $listProducts;
         $data["productsInCart"] = $listProductsInCart;
+        $data["amountInCart"] = $listAmountsInCart;
         $data["totalPrice"] = $priceTotal;
         return view('cart.index')->with("data", $data);
     }
 
     public function add($id, Request $request)
     {
+        $request->validate([
+            "amount" => "required|numeric|integer|gt:0"
+        ]);
         $products = $request->session()->get("products");
-        $products[$id] = $id;
+        $products[$id] = $request->input('amount');
         $request->session()->put('products', $products);
+
+        $totalAmount = array_sum($products);
+        $request->session()->put('amount', $totalAmount);
 
         return back();
     }
@@ -52,12 +60,16 @@ class CartController extends Controller
         unset($products[$id]);
         $request->session()->put('products', $products);
 
+        $totalAmount = array_sum($products);
+        $request->session()->put('amount', $totalAmount);
+
         return back();
     }
 
     public function removeAll(Request $request)
     {
         $request->session()->forget('products');
+        $request->session()->forget('amount');
         return back();
     }
 }

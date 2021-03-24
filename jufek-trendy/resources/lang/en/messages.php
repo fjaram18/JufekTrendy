@@ -29,8 +29,16 @@ return [
     'image_error' => 'Image not found',
     'price' => 'Price',
     'delete' => 'Delete',
-    'inStock' => 'In Stock',
-    'noStock' => 'The item is no longer avaible',
-    'priceTotal' => 'Total price',
-    'cart' => 'Cart'
+    'in_stock' => 'In Stock',
+    'no_stock' => 'The item is not avaible in this quantity',
+    'no_stock2' => 'The item is not avaible',
+    'price_total' => 'Total price',
+    'cart' => 'Cart',
+    'avaible_products' => 'All Products',
+    'size' => 'Size',
+    'add_to_cart' => 'Add to Cart',
+    'remove_all' => 'Remove all products from cart',
+    'update_amount' => 'Update Amount',
+    'quantity' => 'Quantity',
+    'admin_menu' => 'Admin Menu'
 ];

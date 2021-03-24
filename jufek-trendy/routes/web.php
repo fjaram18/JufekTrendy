@@ -24,7 +24,7 @@ Route::get('/product/list', [App\Http\Controllers\User\ProductController::class,
 
 //Routes User Shopping Cart
 Route::get('/cart/index', [App\Http\Controllers\User\CartController::class, 'index'])->name('cart.index');
-Route::get('/cart/add/{id}', [App\Http\Controllers\User\CartController::class, 'add'])->name('cart.add');
+Route::post('/cart/add/{id}', [App\Http\Controllers\User\CartController::class, 'add'])->name('cart.add');
 Route::get('/cart/delete/{id}', [App\Http\Controllers\User\CartController::class, 'delete'])->name('cart.delete');
 Route::get('/cart/removeAll', [App\Http\Controllers\User\CartController::class, 'removeAll'])->name('cart.removeAll');
 
