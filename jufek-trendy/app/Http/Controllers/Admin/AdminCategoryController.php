@@ -28,8 +28,8 @@ class AdminCategoryController extends Controller
     {
         $data = []; 
         $data["routes"] = [
-            ["route" => "category.create", "tittle" => __('messages.create_category')],
-            ["route" => "category.list", "tittle" => __('messages.list_categories')],
+            ["route" => "admin.category.create", "tittle" => __('messages.create_category')],
+            ["route" => "admin.category.list", "tittle" => __('messages.list_categories')],
         ];
 
         return view('admin.admin_menu')->with("data", $data);
