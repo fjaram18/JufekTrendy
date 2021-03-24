@@ -25,6 +25,12 @@ return [
     'list_categories' => 'List Categories',
     'create_item' => 'Create Item',
     'list_items' => 'List Item',
-    
-
+    'shopping_cart' => 'Shopping Cart',
+    'image_error' => 'Image not found',
+    'price' => 'Price',
+    'delete' => 'Delete',
+    'inStock' => 'In Stock',
+    'noStock' => 'The item is no longer avaible',
+    'priceTotal' => 'Total price',
+    'cart' => 'Cart'
 ];
