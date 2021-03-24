@@ -21,6 +21,7 @@ class CreateCustomizationsTable extends Migration
             $table->integer('size');
             $table->text('location');
             $table->integer('price');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });
     }

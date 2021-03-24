@@ -87,4 +87,14 @@ class Order extends Model
     {
         $this->attributes['payment_type'] = $payment_type;
     }
+
+    public function items()
+    {
+        return $this->hasMany(Item::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

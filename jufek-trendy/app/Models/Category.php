@@ -54,4 +54,9 @@ class Category extends Model
     {
         $this->attributes['description'] = $description;
     }
+
+    public function prodcuts()
+    {
+        return $this->hasMany(prodcut::class);
+    }
 }

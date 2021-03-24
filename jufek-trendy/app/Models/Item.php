@@ -54,4 +54,19 @@ class Item extends Model
     {
         $this->attributes['subtotal'] = $subtotal;
     }
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+    public function customization()
+    {
+        return $this->belongsTo(Customization::class);
+    }
 }
