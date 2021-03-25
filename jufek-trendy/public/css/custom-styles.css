@@ -1,3 +1,23 @@
 .padding-20{
     padding: 20px;
 }
+
+.holder {
+    display: inline;
+  }
+
+.holder img {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+}
+
+.show-holder {
+    display: inline;
+  }
+
+.show-holder img {
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+}

@@ -13,14 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+// Routes Home
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name("home.index");
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/admin/home', [App\Http\Controllers\Admin\AdminHomeController::class, 'index'])->name('admin.home');
 
+//Routes User Products
 Route::get('/product/show/{id}', [App\Http\Controllers\User\ProductController::class, 'show'])->name('product.show');
 Route::get('/product/list', [App\Http\Controllers\User\ProductController::class, 'list'])->name('product.list');
 
+//Routes User Shopping Cart
+Route::get('/cart/index', [App\Http\Controllers\User\CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/add/{id}', [App\Http\Controllers\User\CartController::class, 'add'])->name('cart.add');
+Route::get('/cart/delete/{id}', [App\Http\Controllers\User\CartController::class, 'delete'])->name('cart.delete');
+Route::get('/cart/removeAll', [App\Http\Controllers\User\CartController::class, 'removeAll'])->name('cart.removeAll');
 
 // Auth
 Auth::routes();
