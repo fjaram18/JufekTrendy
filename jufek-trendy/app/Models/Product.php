@@ -11,9 +11,9 @@ class Product extends Model
 {
     use HasFactory;
 
-    //attributes id, name, size, stock, price, image, description, created_at, updated_at
+    //attributes id, name, size, stock, price, image, description, category_id, created_at, updated_at
     protected $fillable = [
-        'name', 'size', 'stock', 'price', 'image', 'description',
+        'name', 'size', 'stock', 'price', 'image', 'description', 'category_id'
     ];
 
     public static function validate(Request $request)
