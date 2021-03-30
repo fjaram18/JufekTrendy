@@ -31,12 +31,8 @@ class ProductController extends Controller
     {
         $data = []; 
         $data["title"] = "Avaible Products";
-        $products = Product::all();
-        $listProducts = array();
-        foreach ($products as $product) { //indizamos la lista de productos
-            $listProducts[$product->getId()] = $product;
-        }
-        $data["products"] = $listProducts;
+        $products = Product::where('stock','>',0)->simplePaginate(6);
+        $data["products"] = $products;
 
         return view('product.list')->with("data",$data);
     }
