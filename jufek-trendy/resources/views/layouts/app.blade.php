@@ -25,9 +25,9 @@
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="{{ route('product.list') }}"> Jufek Trendy </a>
             @if(Auth::check())
-                @if( Auth::user()->getRole() == 'admin')
-                <a href="{{ route('admin.home') }}">{{__('messages.admin_menu')}}</a>
-                @endif
+            @if( Auth::user()->getRole() == 'admin')
+            <a href="{{ route('admin.home') }}">{{__('messages.admin_menu')}}</a>
+            @endif
             @endif
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
@@ -35,12 +35,22 @@
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('login') }}"> {{__('messages.login')}}</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('register') }}"> {{__('messages.register')}} </a></li>
                     @else
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('cart.index') }}"> 
-                        {{__('messages.cart')}}
-                        @if (Session::get('amount') > 0)
-                            ({{ Session::get('amount') }}) 
-                        @endif
-                    </a></li>
+                    <form action="{{ route('search.index') }}" method="GET" role="search" style="margin-right: 200px; margin-top: 10px;">
+                        <div class="input-group" style="margin-right: 50px;">
+                            <span class="input-group-prepend">
+                                <button class="btn btn-info" type="submit" title="Search products">
+                                    <span class="fas fa-search"></span>
+                                </button>
+                            </span>
+                            <input type="text" class="form-control mr-2" name="term" placeholder="Search products" id="term">
+                        </div>
+                    </form>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('cart.index') }}">
+                            {{__('messages.cart')}}
+                            @if (Session::get('amount') > 0)
+                            ({{ Session::get('amount') }})
+                            @endif
+                        </a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"> {{__('messages.logout')}} </a></li>
 

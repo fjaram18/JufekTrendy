@@ -40,5 +40,6 @@ return [
     'remove_all' => 'Remove all products from cart',
     'update_amount' => 'Update Amount',
     'quantity' => 'Quantity',
-    'admin_menu' => 'Admin Menu'
+    'admin_menu' => 'Admin Menu',
+    'search_results' => 'Search results for'
 ];
