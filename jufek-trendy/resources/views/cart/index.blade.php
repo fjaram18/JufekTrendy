@@ -28,7 +28,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="holder">
-                                    <img src="{{ asset('/img/product').'/'.$key.'.jpeg' }}" alt="{{__('messages.image_error')}}">
+                                    <img src="{{ asset('/img/product').'/'.$product->getImage() }}" alt="{{__('messages.image_error')}}">
                                 </div>
                             </div>
                             <div class="col-md-3" style="text-align: left; padding-top: 25px;">

@@ -17,7 +17,7 @@
                 <div class="col-md-4">
                     <div class="holder">
                         <a href="{{ route('product.show', ['id' => $product->getId()]) }}">
-                            <img src="{{ asset('/img/product').'/'.$product->getId().'.jpeg' }}" alt="{{__('messages.image_error')}}">
+                            <img src="{{ asset('/img/product').'/'.$product->getImage() }}" alt="{{__('messages.image_error')}}">
                         </a>
                     </div>
                     <h4>{{ $product->getName() }}</h4>

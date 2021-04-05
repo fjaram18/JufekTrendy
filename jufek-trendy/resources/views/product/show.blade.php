@@ -20,7 +20,7 @@
             <div class="row justify-content-start">
                 <div class="col-md-5">
                     <div class="show-holder">
-                        <img src="{{ asset('/img/product').'/'.$data['product']->getId().'.jpeg' }}" alt="{{__('messages.image_error')}}">
+                        <img src="{{ asset('/img/product').'/'.$data['product']->getImage() }}" alt="{{__('messages.image_error')}}">
                     </div>
                 </div>
                 <div class="col-md-3 justify-content-start">
