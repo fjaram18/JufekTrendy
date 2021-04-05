@@ -38,10 +38,74 @@ return [
     'list_categories' => 'List Categories',
     'menu_categories' => 'Category Menu',
 
-    // Menu Admin Item
-    'create_items' => 'Create Items',
-    'list_items' => 'List Items',
-    'menu_items' => 'Items Menu',
+
+    
+    //CategoryAdminView
+    'create_category' => 'Create Category',
+    'list_categories' => 'List Categories',
+    'category_succes' => 'Category successfully created!!',
+    'category_delete' => 'Category successfully deleted!!',
+    'category_remove' => 'Remove Category',
+    
+    //Category attributes
+    'category_id' => 'ID',
+    'category_name' => 'Name',
+    'category_description' => 'Description',
+    
+    //ProductAdminView
+    'create_product' => 'Create Product',
+    'list_products' => 'List Products',
+    'product_succes' => 'Product successfully created!!',
+    'product_delete' => 'Product successfully deleted!!',
+    'product_remove' => 'Remove Product',
+    
+    //Product attributes
+    'product_id' => 'ID',
+    'product_name' => 'Name',
+    'product_size' => 'Size',
+    'product_stock' => 'Stock',
+    'product_price' => 'Price',
+    'product_image' => 'Image',
+    'product_description' => 'Description',
+    'product_category' => 'Category',
+
+    //CustomizationAdminView
+    'create_customization' => 'Create Customization',
+    'list_customizations' => 'List Customizations',
+    'customization_succes' => 'Customization successfully created!!',
+    'customization_delete' => 'Customization successfully deleted!!',
+    'customization_remove' => 'Remove Customization',
+
+    //Customization attributes
+    
+    'customization_id' => 'ID',
+    'customization_name' => 'Name',
+    'customization_size' => 'Size',
+    'customization_location' => 'Location',
+    'customization_price' => 'Price',
+    'customization_product' => 'Product',
+    
+    //OrderAdminView
+    'create_order' => 'Create Order',
+    'list_orders' => 'List Orders',
+    'order_succes' => 'Order successfully created!!',
+    'order_delete' => 'Order successfully deleted!!',
+    'order_remove' => 'Remove Order',
+    
+    
+
+    //Order attributes
+    'order_id' => 'Order ID',
+    'order_date' => 'Order Date',
+    'order_total' => 'Total',
+    'order_shipping_date' => 'Shipping Date',
+    'order_state' => 'State',
+    'order_payment_type' => 'Payment Type',
+    'order_user' => 'User',
+
+
+    // Forms
+    'send' => 'Send',
 
 
     'shopping_cart' => 'Shopping Cart',
@@ -60,35 +124,4 @@ return [
     'update_amount' => 'Update Amount',
     'quantity' => 'Quantity',
     'admin_menu' => 'Admin Menu',
-
-    //CategoryAdminView
-    'create_category' => 'Create Category',
-    'list_categories' => 'List Categories',
-    'category_succes' => 'Category successfully created!!',
-    'category_delete' => 'Category successfully deleted!!',
-    'category_remove' => 'Remove Category',
-    
-    //Category attributes
-    'category_name' => 'Name',
-    'category_description' => 'Description',
-
-    //ProductAdminView
-    'create_product' => 'Create Product',
-    'list_products' => 'List Products',
-    'product_succes' => 'Product successfully created!!',
-    'product_delete' => 'Product successfully deleted!!',
-    'product_remove' => 'Remove Product',
-    
-    //Product attributes
-    'product_name' => 'Name',
-    'product_size' => 'Size',
-    'product_stock' => 'Stock',
-    'product_price' => 'Price',
-    'product_image' => 'Image',
-    'product_description' => 'Description',
-    'product_category' => 'Category',
-
-
-    // Forms
-    'send' => 'Send',
 ];

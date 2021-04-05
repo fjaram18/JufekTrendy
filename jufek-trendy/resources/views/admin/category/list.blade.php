@@ -10,12 +10,22 @@
                 </h1>  
                 <div class="col-11" >
                     <ul id="errors">
-                        <div class="list-group" > 
-                            @include('util.message')
+                        @include('util.message')
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                  <th scope="col">{{__('messages.category_id')}}</th>
+                                  <th scope="col">{{__('messages.category_name')}}</th>
+                                </tr>
+                            </thead>
                             @foreach($data["categories"] as $category)
-                            <a  href="{{ route('admin.category.show', ['id' => $category->getid()])}}" class="list-group-item list-group-item-action list-group-item-dark" > <b>{{ $category->getId() }} - {{ $category->getName() }} </b></a>
+                            <tr>
+                                <th scope="row"> <a  href="{{ route('admin.category.show', ['id' => $category->getid()])}}" class="btn btn-primary " > {{ $category->getId() }} </b></a></th>
+                                <td> {{ $category->getName() }}</td>             
+                            </tr>
                             @endforeach    
-                        </div>
+                            </tbody>
+                        </table>
                     </ul>
                 </div>
             </div>

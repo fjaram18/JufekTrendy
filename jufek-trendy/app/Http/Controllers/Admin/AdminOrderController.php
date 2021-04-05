@@ -1,10 +1,11 @@
 <?php
-//Autor: Katherin Valencia
+//Autor: Katherin Valencia and Juan Camilo Echeverri
 
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Exception;
@@ -57,13 +58,17 @@ class AdminOrderController extends Controller
 
     public function create()
     {
-        return view('admin.order.create');
+        $data = []; //to be sent to the view
+        $data["users"] = User::all();
+
+        return view('admin.order.create')->with("data",$data);
     }
 
     public function list()
     {
         $data = []; 
         $data["orders"] = Order::all();
+        
 
         return view('admin.order.list')->with("data",$data);
     }
@@ -71,15 +76,16 @@ class AdminOrderController extends Controller
     public function save(Request $request)
     {
         Order::validate($request);
+        Order::create($request->only(['order_date', 'total', 'shipping_date', 'order_state', 'payment_type', 'user_id']));
         
-        return back()->with('success', 'Order successfully created');
+        return back()->with('success', __('messages.order_succes'));
     }
 
     public function delete($id)
     {
         $order = Order::findOrFail($id);
         $order->delete();
-
-        return redirect()->route('admin.order.list')->with('success', 'Order successfully deleted');
+        
+        return redirect()->route('admin.order.list')->with('eliminate',  __('messages.order_delete'));
     }
 }
