@@ -2,14 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class Customization extends Model
 
 {
-    //attributes id, name, size, location, price, timestamps
-    protected $fillable = ['name', 'size', 'location', 'price'];
+    //attributes id, name, size, location, price, product_id, timestamps
+    protected $fillable = ['name', 'size', 'location', 'price', 'product_id'];
 
     public static function validate(Request $request)
     {
@@ -73,9 +74,9 @@ class Customization extends Model
         $this->attributes['price'] = $price;
     }
 
-    public function prodcuts()
+    public function product()
     {
-        return $this->hasMany(prodcut::class);
+        return $this->belongsTo(Product::class);
     }
 
     public function items()

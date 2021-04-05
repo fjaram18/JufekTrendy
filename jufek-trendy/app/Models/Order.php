@@ -12,9 +12,9 @@ class Order extends Model
 {
     use HasFactory;
 
-    //attributes order_date, total, shipping_date, order_state, payment_type
+    //attributes order_date, total, shipping_date, order_state, payment_type, user_id
     protected $fillable = [
-        'order_date','total', 'shipping_date', 'order_state', 'payment_type'
+        'order_date', 'total', 'shipping_date', 'order_state', 'payment_type', 'user_id'
     ];
     
     public static function validate(Request $request)
@@ -86,6 +86,17 @@ class Order extends Model
     public function setPayment($payment_type)
     {
         $this->attributes['payment_type'] = $payment_type;
+    }
+
+    
+    public function getUserId()
+    {
+        return $this->attributes['user_id'];
+    }
+
+    public function setUserId($user_id)
+    {
+        $this->attributes['user_id'] = $user_id;
     }
 
     public function items()
