@@ -60,6 +60,7 @@ return [
     'update_amount' => 'Update Amount',
     'quantity' => 'Quantity',
     'admin_menu' => 'Admin Menu',
+    'search_results' => 'Search results for',
 
     //CategoryAdminView
     'create_category' => 'Create Category',
@@ -91,4 +92,5 @@ return [
 
     // Forms
     'send' => 'Send',
+
 ];
