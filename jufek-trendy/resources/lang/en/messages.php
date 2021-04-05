@@ -10,6 +10,37 @@ return [
     'around' => 'Around The Web',
     'aboutJufek' => 'About Jufek Trendy',
     'aboutJufekMessage' => 'Jufek Trendy is Comfort and Personality',
+    'admin_menu' => 'Admin Menu',
+  
+     //Images
+    'image_error' => 'Image not found',
+
+    //Shopping Cart
+    'shopping_cart' => 'Shopping Cart',
+    'remove_all' => 'Remove all products from cart',
+    'update_amount' => 'Update Amount',
+    'quantity' => 'Quantity',
+    'with' => 'with',
+
+    //Products
+    'price' => 'Price',
+    'delete' => 'Delete',
+    'in_stock' => 'In Stock',
+    'no_stock' => 'The item is not avaible in this quantity',
+    'no_stock2' => 'The item is not avaible',
+    'price_total' => 'Total price',
+    'cart' => 'Cart',
+    'avaible_products' => 'All Products',
+    'size' => 'Size',
+    'add_to_cart' => 'Add to Cart',
+    'update_cart' => 'Update Cart',
+    'delete_from_cart' => 'Delete from cart',
+    'customize' => 'Customize product',
+    'add_customize' => 'Add customized product',
+    'pick_customization' => 'Pick a customization to personalize your product...',
+
+    //Search results
+    'search_results' => 'Search results for',
 
     //Index Admin
     'product' => 'Product',
@@ -44,7 +75,6 @@ return [
     'list_items' => 'List Items',
     'menu_items' => 'Items Menu',
 
-    
     //CategoryAdminView
     'create_category' => 'Create Category',
     'list_categories' => 'List Categories',
@@ -111,24 +141,7 @@ return [
 
     // Forms
     'send' => 'Send',
-  
-    'shopping_cart' => 'Shopping Cart',
-    'image_error' => 'Image not found',
-    'price' => 'Price',
-    'delete' => 'Delete',
-    'in_stock' => 'In Stock',
-    'no_stock' => 'The item is not avaible in this quantity',
-    'no_stock2' => 'The item is not avaible',
-    'price_total' => 'Total price',
-    'cart' => 'Cart',
-    'avaible_products' => 'All Products',
-    'size' => 'Size',
-    'add_to_cart' => 'Add to Cart',
-    'remove_all' => 'Remove all products from cart',
-    'update_amount' => 'Update Amount',
-    'quantity' => 'Quantity',
-    'admin_menu' => 'Admin Menu',
-    'search_results' => 'Search results for',
+ 
 
 
 ];
