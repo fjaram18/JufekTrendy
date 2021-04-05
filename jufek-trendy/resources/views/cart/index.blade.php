@@ -38,7 +38,7 @@
                                 @else
                                 <small style="color: red;">{{__('messages.no_stock')}}</small>
                                 @endif
-                                <form method="POST" action="{{ route('cart.add', ['id'=> $key]) }}" style="text-align: left; padding-top: 25px;">
+                                <form method="POST" action="{{ route('cart.add', ['id'=> $product->getId()]) }}" style="text-align: left; padding-top: 25px;">
                                     @csrf
                                     <select require type="submit" class="form-control form-control-sm" name="amount" style="width: 110px;" onchange="this.form.submit();">
                                         <option value="" selected disabled hidden>{{__('messages.quantity')}}: {{ intval($data["amountInCart"][$key]) }}</option>
