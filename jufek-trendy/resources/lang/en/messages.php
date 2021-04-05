@@ -39,6 +39,11 @@ return [
     'menu_categories' => 'Category Menu',
 
 
+    // Menu Admin Item
+    'create_items' => 'Create Items',
+    'list_items' => 'List Items',
+    'menu_items' => 'Items Menu',
+
     
     //CategoryAdminView
     'create_category' => 'Create Category',
@@ -106,8 +111,7 @@ return [
 
     // Forms
     'send' => 'Send',
-
-
+  
     'shopping_cart' => 'Shopping Cart',
     'image_error' => 'Image not found',
     'price' => 'Price',
@@ -124,4 +128,7 @@ return [
     'update_amount' => 'Update Amount',
     'quantity' => 'Quantity',
     'admin_menu' => 'Admin Menu',
+    'search_results' => 'Search results for',
+
+
 ];

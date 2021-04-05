@@ -28,6 +28,9 @@ Route::post('/cart/add/{id}', [App\Http\Controllers\User\CartController::class, 
 Route::get('/cart/delete/{id}', [App\Http\Controllers\User\CartController::class, 'delete'])->name('cart.delete');
 Route::get('/cart/removeAll', [App\Http\Controllers\User\CartController::class, 'removeAll'])->name('cart.removeAll');
 
+//Route search results
+Route::get('/search/index', [App\Http\Controllers\User\SearchController::class, 'index'])->name('search.index');
+
 // Auth
 Auth::routes();
 

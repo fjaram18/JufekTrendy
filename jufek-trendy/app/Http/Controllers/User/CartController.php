@@ -14,25 +14,21 @@ class CartController extends Controller
         $data = []; //to be sent to the view
 
         $products = Product::all();
-        $listProducts = array();
         $listProductsInCart = array();
         $listAmountsInCart = array();
         $priceTotal = 0;
-        foreach ($products as $product) { //indizamos la lista de productos
-            $listProducts[$product->getId()] = $product;
-        }
         $ids = $request->session()->get("products"); //obtenemos ids de productos guardados en session
         if ($ids) {
-            foreach ($listProducts as $key => $product) {
-                if (in_array($key, array_keys($ids))) {
-                    $listProductsInCart[$key] = $product;
-                    $listAmountsInCart[$key] = $ids[$key];
-                    $priceTotal = $priceTotal + $product->getPrice() * intval($ids[$key]);
+            foreach ($products as $product) {
+                if (in_array($product->getId(), array_keys($ids))) {
+                    $listProductsInCart[$product->getId()] = $product;
+                    $listAmountsInCart[$product->getId()] = $ids[$product->getId()];
+                    $priceTotal = $priceTotal + $product->getPrice() * intval($ids[$product->getId()]);
                 }
             }
         }
         $data["title"] = "Shopping Cart";
-        $data["products"] = $listProducts;
+        $data["products"] = $products;
         $data["productsInCart"] = $listProductsInCart;
         $data["amountInCart"] = $listAmountsInCart;
         $data["totalPrice"] = $priceTotal;
@@ -41,9 +37,11 @@ class CartController extends Controller
 
     public function add($id, Request $request)
     {
+        
         $request->validate([
             "amount" => "required|numeric|integer|gt:0"
         ]);
+
         $products = $request->session()->get("products");
         $products[$id] = $request->input('amount');
         $request->session()->put('products', $products);
