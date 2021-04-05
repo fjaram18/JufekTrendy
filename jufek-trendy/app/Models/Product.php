@@ -98,14 +98,24 @@ class Product extends Model
         $this->attributes['description'] = $description;
     }
 
+    public function getCategoryId()
+    {
+        return $this->attributes['category_id'];
+    }
+
+    public function setCategoryId($category_id)
+    {
+        $this->attributes['category_id'] = $category_id;
+    }
+
     public function items()
     {
         return $this->hasMany(Item::class);
     }
 
-    public function categories()
+    public function category()
     {
-        return $this->hasMany(Category::class);
+        return $this->belongsTo(Category::class);
     }
 
     public function customizations()
