@@ -10,6 +10,7 @@ return [
     'around' => 'Around The Web',
     'aboutJufek' => 'About Jufek Trendy',
     'aboutJufekMessage' => 'Jufek Trendy is Comfort and Personality',
+    'admin_menu' => 'Admin Menu',
 
     //Index Admin
     'product' => 'Product',
@@ -43,9 +44,17 @@ return [
     'list_items' => 'List Items',
     'menu_items' => 'Items Menu',
 
-
-    'shopping_cart' => 'Shopping Cart',
+    //Images
     'image_error' => 'Image not found',
+
+    //Shopping Cart
+    'shopping_cart' => 'Shopping Cart',
+    'remove_all' => 'Remove all products from cart',
+    'update_amount' => 'Update Amount',
+    'quantity' => 'Quantity',
+    'with' => 'with',
+
+    //Products
     'price' => 'Price',
     'delete' => 'Delete',
     'in_stock' => 'In Stock',
@@ -56,12 +65,15 @@ return [
     'avaible_products' => 'All Products',
     'size' => 'Size',
     'add_to_cart' => 'Add to Cart',
-    'remove_all' => 'Remove all products from cart',
-    'update_amount' => 'Update Amount',
-    'quantity' => 'Quantity',
-    'admin_menu' => 'Admin Menu',
-    'search_results' => 'Search results for',
+    'update_cart' => 'Update Cart',
+    'delete_from_cart' => 'Delete from cart',
+    'customize' => 'Customize product',
+    'add_customize' => 'Add customized product',
+    'pick_customization' => 'Pick a customization to personalize your product...',
 
+    //Search results
+    'search_results' => 'Search results for',
+  
     //CategoryAdminView
     'create_category' => 'Create Category',
     'list_categories' => 'List Categories',

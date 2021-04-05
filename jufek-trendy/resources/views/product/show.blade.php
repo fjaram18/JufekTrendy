@@ -20,7 +20,7 @@
             <div class="row justify-content-start">
                 <div class="col-md-5">
                     <div class="show-holder">
-                        <img src="{{ asset('/img/product').'/'.$data['product']->getId().'.jpeg' }}" alt="{{__('messages.image_error')}}">
+                        <img src="{{ asset('/img/product').'/'.$data['product']->getImage() }}" alt="{{__('messages.image_error')}}">
                     </div>
                 </div>
                 <div class="col-md-3 justify-content-start">
@@ -29,6 +29,9 @@
                     <h4 style="padding-top: 20px;">${{ $data["product"]->getPrice() }}</h4>
                     <p style="padding-top: 50px;"><b>{{__('messages.size')}}: </b>{{ $data["product"]->getSize()  }}</p>
                     <p style="padding-top: 20px;">{{ $data["product"]->getDescription() }}</p>
+                    @if(sizeOf($data["product"]->customizations) && !Session::get('customization'))
+                     <a href="{{ route('customization.show', ['id'=> $data['product']->getId()]) }}" class="btn btn-primary" type="button" ">{{__('messages.customize')}}</a>
+                    @endif
                 </div>
                 <div class="col-md-2 offset-md-2">
                 @if( $data["product"]->getStock() > 0 )
@@ -42,8 +45,16 @@
                             <option>5</option>
                         </select>
                         <br>
-                        <button type="submit" class="btn btn-primary" style="margin-right: 40px;" onClick="window.location.reload();">{{__('messages.add_to_cart')}}</button>
+                        @if(Session::get('products') && array_key_exists( $data["product"]->getId(), Session::get('products') ))
+                            <button type="submit" class="btn btn-primary" style="margin-right: 40px;" onClick="window.location.reload();">{{__('messages.update_cart')}}</button>
+                        @else
+                            <button type="submit" class="btn btn-primary" style="margin-right: 40px;" onClick="window.location.reload();">{{__('messages.add_to_cart')}}</button>
+                        @endif
                     </form>
+                @endif
+                @if(Session::get('products') && array_key_exists( $data["product"]->getId(), Session::get('products') ))
+                <br>
+                    <a href="{{ route('cart.delete', ['id'=> $data['product']->getId()]) }}" class="btn btn-secondary btn-sm" type="button" style="margin-right: 40px;">{{__('messages.delete')}}</a>
                 @endif
                 </div>
             </div>

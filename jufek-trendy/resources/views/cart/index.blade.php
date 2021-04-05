@@ -18,17 +18,47 @@
                             <a href="{{ route('cart.removeAll') }}">{{__('messages.remove_all')}}</a>
                         </div>
                         <div class="col-md-2">
-                            <a class="text-nowrap" style="padding-top: 100px;">{{__('messages.price')}}</a>
+                            <a class="text-nowrap" style="padding-top: 100px;"><b>{{__('messages.price')}}</b></a>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
                     <ul>
+                        @if($data["customization"])
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="holder">
+                                    <img src="{{ asset('/img/product').'/'.$data['customization']->product->getImage() }}" alt="{{__('messages.image_error')}}">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="holder">
+                                    <img src="{{ asset('/img/customization').'/'.$data['customization']->getId().'.jpeg' }}" alt="{{__('messages.image_error')}}">
+                                </div>
+                            </div>
+                            <div class="col-md-3" style="padding-top: 40px; padding-left:40px;">
+                                <h3>{{ $data['customization']->product->getName() }}</h3>
+                                <a>{{__('messages.with')}}</a>
+                                <h3 style="padding-top: 7px;">{{ $data['customization']->getName() }}</h3>
+                            </div>
+                            <div class="col-md-3" style="padding-top: 50px;">
+                                <p>{{__('messages.delete')}}</p>
+                                <a href="{{ route('cart.deleteCustomization') }}" class="btn btn-secondary btn-lg" type="button">X</a>
+                            </div>
+                            <div class="col-md-2" style="padding-top: 65px;">
+                                <h4>${{ $data['customization']->product->getPrice()  }}</h4>
+                                <h4>${{ $data['customization']->getPrice()  }}</h4>
+                            </div>
+                        </div>
+                        <hr>
+                        @endif
                         @foreach($data["productsInCart"] as $key => $product)
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="holder">
-                                    <img src="{{ asset('/img/product').'/'.$key.'.jpeg' }}" alt="{{__('messages.image_error')}}">
+                                    <a href="{{ route('product.show', ['id' => $product->getId()]) }}">
+                                        <img src="{{ asset('/img/product').'/'.$product->getImage() }}" alt="{{__('messages.image_error')}}">
+                                    </a>
                                 </div>
                             </div>
                             <div class="col-md-3" style="text-align: left; padding-top: 25px;">
@@ -66,7 +96,7 @@
                 </div>
                 <div class="card-footer text-white bg-secondary" style="text-align: right">
                     <a>{{__('messages.price_total')}} ({{ Session::get('amount') }}):</a>
-                    <b style="font-size: 150%;">${{ $data["totalPrice"] }} </b>
+                    <b style="font-size: 150%; padding-left:6px;">${{ $data["totalPrice"] }} </b>
                 </div>
             </div>
         </div>
