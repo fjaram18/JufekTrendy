@@ -73,8 +73,25 @@ class AdminProductController extends Controller
 
     public function save(Request $request)
     {
+        
         Product::validate($request);
-        Product::create($request->only(["name", "size", "stock", "price", "image", "description", "category_id"]));
+        $product = new Product();
+
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $nameImage = time().$image->getClientOriginalName();
+            $image->move(public_path().'/img/product',$nameImage);
+        };
+
+        $product->setName($request->input('name'));
+        $product->setSize($request->input('size'));
+        $product->setStock($request->input('stock'));
+        $product->setPrice($request->input('price'));
+        $product->setImage($nameImage);
+        $product->setDescription($request->input('description'));
+        $product->setCategoryId($request->input('category_id'));
+        $product->save();
+        //Product::create($request->only(["name", "size", "stock", "price", "image", "description", "category_id"]));
 
         return back()->with('success', __('messages.product_succes'));
 

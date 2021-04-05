@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Customization;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Exception;
@@ -32,7 +33,7 @@ class AdminCustomizationController extends Controller
             ["route" => "admin.customization.list", "tittle" => __('messages.list_customizations')],
         ];
 
-        $data["title"] = __('messages.menu_cutomizations');
+        $data["title"] = __('messages.menu_customizations');
 
         return view('admin.admin_menu')->with("data", $data);
     }
@@ -59,7 +60,7 @@ class AdminCustomizationController extends Controller
     public function create()
     {
         $data = []; //to be sent to the view
-        $data["title"] = "Create customization";
+        $data["products"] = Product::all();
 
         return view('admin.customization.create')->with("data", $data);
     }
@@ -68,23 +69,18 @@ class AdminCustomizationController extends Controller
     public function save(Request $request)
     {
         Customization::validate($request);
-        Customization::create($request->only(["name", "size", "location", "price"]));
+        Customization::create($request->only(["name", "size", "location", "price", "product_id"]));
 
-        return back();
+        return back()->with('success', __('messages.customization_succes'));
     }
 
 
     public function delete($id) 
     {
-        try {
-
-            Customization::destroy($id);
-            return redirect()->route('admin.customization.list');
-
-        } catch (Exception $e){
-
-            return redirect()->route('home.index');
-        }
+        
+        Customization::destroy($id);
+        return redirect()->route('admin.customization.list')->with('eliminate', __('messages.customization_delete'));
+       
     }
 
 

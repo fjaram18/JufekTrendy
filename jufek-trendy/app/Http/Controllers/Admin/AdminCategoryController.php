@@ -1,5 +1,5 @@
 <?php
-//Autor: Katherin Valencia
+//Autor: Katherin Valencia and Juan Camilo Echeverri
 
 namespace App\Http\Controllers\Admin;
 

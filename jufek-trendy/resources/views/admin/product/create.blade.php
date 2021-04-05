@@ -18,7 +18,7 @@
                         @endforeach
                     </ul>
                     @endif
-                    <form method="POST" class="form-group" action="{{ route('admin.product.save') }}">
+                    <form method="POST" class="form-group" action="{{ route('admin.product.save')}}" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label class="form-label" >{{__('messages.product_name')}}</label>
@@ -40,11 +40,11 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label" >{{__('messages.product_price')}}</label>
-                            <input required type="number" class="form-control" placeholder="100" name="price" value="{{ old('price') }}" />
+                            <input required type="number" class="form-control" placeholder="100" name="price" value="{{ old('price') }}" min="0" max="999999.9999" step="any"/>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" >{{__('messages.product_image')}}</label>
-                            <input required type="file" class="form-control"  name="image" value="{{ old('image') }}" />
+                            <input required type="file" class="form-control"  name="image"  value="{{ old('image') }}" />
                         </div>
                         <div class="mb-3">
                             <label class="form-label" >{{__('messages.product_description')}}</label>
