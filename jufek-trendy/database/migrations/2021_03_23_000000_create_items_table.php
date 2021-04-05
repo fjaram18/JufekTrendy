@@ -22,7 +22,9 @@ class CreateItemsTable extends Migration
             $table->bigIncrements('id');
             $table->text('amount');
             $table->text('subtotal');
+            $table->bigInteger('product_id')->unsigned();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->bigInteger('customization_id')->unsigned();
             $table->foreign('customization_id')->references('id')->on('customizations')->onDelete('cascade');
             $table->timestamps();
         });

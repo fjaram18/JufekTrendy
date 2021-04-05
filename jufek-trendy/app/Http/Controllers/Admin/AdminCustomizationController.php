@@ -28,9 +28,11 @@ class AdminCustomizationController extends Controller
     {
         $data = []; // to be sent to the view
         $data["routes"] = [
-            ["route" => "admin.customization.create", "tittle" => __('messages.create_customization')],
-            ["route" => "admin.customization.list", "tittle" => __('messages.list_customization')],
+            ["route" => "admin.customization.create", "tittle" => __('messages.create_customizations')],
+            ["route" => "admin.customization.list", "tittle" => __('messages.list_customizations')],
         ];
+
+        $data["title"] = __('messages.menu_cutomizations');
 
         return view('admin.admin_menu')->with("data", $data);
     }
