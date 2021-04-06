@@ -34,6 +34,7 @@ return [
     'avaible_products' => 'All Products',
     'size' => 'Size',
     'add_to_cart' => 'Add to Cart',
+    'top' => 'Top 3 Cheapest Products',
     'update_cart' => 'Update Cart',
     'delete_from_cart' => 'Delete from cart',
     'customize' => 'Customize product',
@@ -144,6 +145,7 @@ return [
     // Forms
     'send' => 'Send',
  
+
 
 
 ];

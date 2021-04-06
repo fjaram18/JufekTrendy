@@ -36,4 +36,12 @@ class ProductController extends Controller
 
         return view('product.list')->with("data",$data);
     }
+
+    public function top()
+    {
+        $dataTop = [];
+        $dataTop = Product::orderBy('price')->take(3)->get(['name', 'price', 'description']);
+
+        return view('home.index')->with("dataTop", $dataTop);
+    }
 }
