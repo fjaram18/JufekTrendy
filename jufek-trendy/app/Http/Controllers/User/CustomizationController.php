@@ -17,10 +17,8 @@ class CustomizationController extends Controller
 
             $data = []; 
             $data["title"] = "Customizations";
-            $product = Product::findOrFail($id);
-            $customizations = $product->customizations;
+            $product = Product::where('id', '=', $id)->with('customizations')->get();
             $data["product"] = $product;
-            $data["customizations"] = $customizations;
 
             return view('customization.show')->with("data",$data);
 

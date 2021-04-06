@@ -21,8 +21,8 @@ class CartController extends Controller
         $customization = $request->session()->get("customization");
         if($customization) {
             $id = $customization;
-            $customization = Customization::findOrFail($id);
-            $priceTotal = ($customization->getPrice()) + ($customization->product->getPrice());
+            $customization = Customization::where('id', '=', $id)->with('product')->get();
+            $priceTotal = ($customization[0]->getPrice()) + ($customization[0]->product->getPrice());
         }
         $ids = $request->session()->get("products"); //obtenemos ids de productos guardados en session
         if ($ids) {

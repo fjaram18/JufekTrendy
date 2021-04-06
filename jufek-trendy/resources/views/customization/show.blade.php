@@ -7,7 +7,7 @@
     <div class="card">
         <div class="card-header text-white bg-secondary">
             <div class="row justify-content-center">
-                <h1>{{__('messages.customize')}}: {{ $data["product"]->getName() }}</h1>
+                <h1>{{__('messages.customize')}}: {{ $data["product"][0]->getName() }}</h1>
             </div>
         </div>
         <div class="card-body">
@@ -15,7 +15,7 @@
                 <a>{{__('messages.pick_customization')}}</a>
             </div>
             <hr>
-            @foreach ($data["customizations"]->chunk(3) as $chunk)
+            @foreach ($data["product"][0]->customizations->chunk(3) as $chunk)
             <div class="row justify-content-center">
                 @foreach ($chunk as $key => $customization)
                 <div class="col-md-4">
