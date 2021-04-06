@@ -14,28 +14,30 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Exception;
+use PDF;
 
 class OrderController extends Controller
 {
     public function show($id)
     {
         try {
-
             $data = [];
-            $order = Order::findOrFail($id);
+            $order = Order::where('id', '=', $id)->with(['items', 'items.product', 'items.customization'])->get();
             $data["order"] = $order;
+            $data["title"] = "Order";
 
             return view('order.show')->with("data", $data);
         } catch (Exception $e) {
-
             return redirect()->route('home.index');
         }
     }
 
     public function list()
-    {
+    {   
+        $user_id = Auth::user()->getId();
         $data = [];
-        $data["orders"] = Order::all();
+        $data["title"] = "My orders";
+        $data["orders"] = Order::where('user_id','=', $user_id)->get();
 
         return view('order.list')->with("data", $data);
     }
@@ -118,4 +120,43 @@ class OrderController extends Controller
             return redirect()->route('home.index');
         }
     }
+
+    public function cancel($id) {
+        try {
+            $order = Order::findOrFail($id);
+            $order->setState("Cancelled");
+            $order->save();
+
+            return back();
+        } catch (Exception $e) {
+            return redirect()->route('home.index');
+        }
+    }
+
+    public function createPDF($id){
+        $data = [];
+        $order = Order::where('id', '=', $id)->with(['items', 'items.product', 'items.customization'])->get();
+        $data["order"] = $order;
+        $data["title"] = "Order";
+
+        view()->share("data", $data);
+
+        $pdf = PDF::loadView('order.downloadPDF', $data);
+
+        return $pdf->download("order.pdf");
+
+    }
+
+    public function downloadPDF($id){
+        try {
+            $data = [];
+            $order = Order::where('id', '=', $id)->with(['items', 'items.product', 'items.customization'])->get();
+            $data["order"] = $order;
+            $data["title"] = "Order";
+
+            return view('order.downloadPDF')->with("data", $data);
+        } catch (Exception $e) {
+            return redirect()->route('home.index');
+        }
+}
 }

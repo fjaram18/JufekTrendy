@@ -69,7 +69,11 @@ class CartController extends Controller
             $request->session()->increment("amount");
         }
 
-        return back();
+        if($request->session()->get("amount") == 0) {
+            return redirect()->route('home.index');
+        } else {
+            return back();
+        }
     }
 
     public function addCustomization($id, Request $request)
@@ -90,7 +94,11 @@ class CartController extends Controller
         $request->session()->forget('customization');
         $request->session()->decrement("amount");
 
-        return back();
+        if($request->session()->get("amount") == 0) {
+            return redirect()->route('home.index');
+        } else {
+            return back();
+        }
     }
 
     public function removeAll(Request $request)

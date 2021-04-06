@@ -22,6 +22,8 @@ return [
     'quantity' => 'Quantity',
     'with' => 'with',
     'confirm_order' => 'Confirm Order',
+    'amount' => 'Amount',
+    'subtotal' => 'Subtotal',
 
     //Products
     'price' => 'Price',
@@ -39,6 +41,8 @@ return [
     'customize' => 'Customize product',
     'add_customize' => 'Add customized product',
     'pick_customization' => 'Pick a customization to personalize your product...',
+    'order_created' => 'Order created',
+    'state' => 'State',
 
     //Search results
     'search_results' => 'Search results for',
@@ -139,6 +143,11 @@ return [
     'order_state' => 'State',
     'order_payment_type' => 'Payment Type',
     'order_user' => 'User',
+    'my_order' => 'My orders',
+    'view' => 'View',
+    'export' => 'Export all orders',
+    'print' => 'Print PDF',
+    'cancel_order' => 'Cancel Order',
 
 
     // Forms
