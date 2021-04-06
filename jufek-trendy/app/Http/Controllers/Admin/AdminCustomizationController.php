@@ -69,7 +69,22 @@ class AdminCustomizationController extends Controller
     public function save(Request $request)
     {
         Customization::validate($request);
-        Customization::create($request->only(["name", "size", "location", "price", "product_id"]));
+        $customization = new Customization();
+
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $nameImage = time().$image->getClientOriginalName();
+            $image->move(public_path().'/img/customization',$nameImage);
+        };
+
+        $customization->setName($request->input('name'));
+        $customization->setSize($request->input('size'));
+        $customization->setLocation($request->input('location'));
+        $customization->setPrice($request->input('price'));
+        $customization->setImage($nameImage);
+        $customization->setProductId($request->input('product_id'));
+        $customization->save();
+        //Customization::create($request->only(["name", "size", "location", "price", "product_id"]));
 
         return back()->with('success', __('messages.customization_succes'));
     }

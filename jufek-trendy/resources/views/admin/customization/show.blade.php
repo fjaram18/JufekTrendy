@@ -13,6 +13,7 @@
                     <b>{{__('messages.customization_size')}}: </b> {{ $data["customization"]->getSize() }}<br/>
                     <b>{{__('messages.customization_location')}}: </b> {{ $data["customization"]->getLocation() }}<br/>
                     <b>{{__('messages.customization_price')}}: </b> {{ $data["customization"]->getPrice() }}<br/>
+                    <b>{{__('messages.customization_image')}}: </b> {{ $data["customization"]->getImage() }}<br/>
                 </div>
                 <div class="block">
                     <a href="{{ route('admin.customization.delete', ['id' => $data["customization"]->getid()])}}" type="submit" class="btn btn-danger"> {{__('messages.customization_remove')}}</a>
