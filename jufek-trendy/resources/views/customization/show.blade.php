@@ -20,7 +20,7 @@
                 @foreach ($chunk as $key => $customization)
                 <div class="col-md-4">
                     <div class="holder">
-                        <img src="{{ asset('/img/customization').'/'.$customization->getId().'.jpeg' }}" alt="{{__('messages.image_error')}}">
+                        <img src="{{ asset('/img/customization').'/'.$customization->getImage() }}" alt="{{__('messages.image_error')}}">
                     </div>
                     <h4>{{ $customization->getName() }}</h4>
                     <a>${{ $customization->getPrice() }}</a>
