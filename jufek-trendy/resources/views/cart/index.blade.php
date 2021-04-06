@@ -24,30 +24,32 @@
                 </div>
                 <div class="card-body">
                     <ul>
-                        @if($data["customization"])
+                        @if($data["customization"][0])
                         <div class="row">
                             <div class="col-md-2">
                                 <div class="holder">
-                                    <img src="{{ asset('/img/product').'/'.$data['customization']->product->getImage() }}" alt="{{__('messages.image_error')}}">
+                                    <img src="{{ asset('/img/product').'/'.$data['customization'][0]->product->getImage() }}" alt="{{__('messages.image_error')}}">
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="holder">
-                                    <img src="{{ asset('/img/customization').'/'.$data['customization']->getImage() }}" alt="{{__('messages.image_error')}}">
+
+                                    <img src="{{ asset('/img/customization').'/'.$data['customization'][0]->getImage() }}" alt="{{__('messages.image_error')}}">
+
                                 </div>
                             </div>
                             <div class="col-md-3" style="padding-top: 40px; padding-left:40px;">
-                                <h3>{{ $data['customization']->product->getName() }}</h3>
+                                <h3>{{ $data['customization'][0]->product->getName() }}</h3>
                                 <a>{{__('messages.with')}}</a>
-                                <h3 style="padding-top: 7px;">{{ $data['customization']->getName() }}</h3>
+                                <h3 style="padding-top: 7px;">{{ $data['customization'][0]->getName() }}</h3>
                             </div>
                             <div class="col-md-3" style="padding-top: 50px;">
                                 <p>{{__('messages.delete')}}</p>
                                 <a href="{{ route('cart.deleteCustomization') }}" class="btn btn-secondary btn-lg" type="button">X</a>
                             </div>
                             <div class="col-md-2" style="padding-top: 65px;">
-                                <h4>${{ $data['customization']->product->getPrice()  }}</h4>
-                                <h4>${{ $data['customization']->getPrice()  }}</h4>
+                                <h4>${{ $data['customization'][0]->product->getPrice()  }}</h4>
+                                <h4>${{ $data['customization'][0]->getPrice()  }}</h4>
                             </div>
                         </div>
                         @if($data["productsInCart"])

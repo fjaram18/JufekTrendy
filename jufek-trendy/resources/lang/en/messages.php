@@ -10,7 +10,7 @@ return [
     'around' => 'Around The Web',
     'aboutJufek' => 'About Jufek Trendy',
     'aboutJufekMessage' => 'Jufek Trendy is Comfort and Personality',
-    'admin_menu' => 'Admins',
+    'admin_menu' => 'Admin Menu',
   
      //Images
     'image_error' => 'Image not found',

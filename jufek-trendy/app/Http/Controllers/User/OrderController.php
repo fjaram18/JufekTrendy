@@ -52,8 +52,8 @@ class OrderController extends Controller
             $customization = $request->session()->get("customization"); //obtenemos id de la personalización guardada en sesion
             if ($customization) {
                 $id = $customization;
-                $customization = Customization::findOrFail($id);
-                $total = ($customization->getPrice()) + ($customization->product->getPrice());
+                $customization = Customization::where('id', '=', $id)->with('product')->get();
+                $total = ($customization[0]->getPrice()) + ($customization[0]->product->getPrice());
             }
 
             $ids = $request->session()->get("products"); //obtenemos ids de productos guardados en session
@@ -87,13 +87,13 @@ class OrderController extends Controller
                 $request->only(['order_date', 'total', 'shipping_date', 'order_state', 'payment_type', 'user_id'])
             );
 
-            if($customization) { //agregamos el producto con perzonalización a la orden
+            if($customization[0]) { //agregamos el producto con perzonalización a la orden
                 $request = new Request([
                     'amount' => 1, 
-                    'subtotal' => ($customization->getPrice()) + ($customization->product->getPrice()), 
+                    'subtotal' => ($customization[0]->getPrice()) + ($customization[0]->product->getPrice()), 
                     'order_id' => $order_id, 
-                    'product_id' => $customization->product->getId(), 
-                    'customization_id' => $customization->getId(), 
+                    'product_id' => $customization[0]->product->getId(), 
+                    'customization_id' => $customization[0]->getId(), 
                 ]);
 
                 Item::validate($request);
