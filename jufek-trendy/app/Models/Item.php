@@ -14,7 +14,7 @@ class Item extends Model
 
     //attributes id, amount, subtotal, created_at, updated_at
     protected $fillable = [
-        'amount','item'
+        'amount','subtotal', 'order_id', 'product_id', 'customization_id'
     ];
     
     public static function validate(Request $request)

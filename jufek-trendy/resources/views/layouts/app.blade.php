@@ -35,7 +35,7 @@
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('login') }}"> {{__('messages.login')}}</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('register') }}"> {{__('messages.register')}} </a></li>
                     @else
-                    <form action="{{ route('search.index') }}" method="GET" role="search" style="margin-right: 200px; margin-top: 10px;">
+                    <form action="{{ route('search.index') }}" method="GET" role="search" style="position: absolute; left: 500px; margin-top: 10px;">
                         <div class="input-group" style="margin-right: 50px;">
                             <span class="input-group-prepend">
                                 <button class="btn btn-info" type="submit" title="Search products">
@@ -45,12 +45,13 @@
                             <input type="text" class="form-control mr-2" name="term" placeholder="Search products" id="term">
                         </div>
                     </form>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('cart.index') }}">
-                            {{__('messages.cart')}}
-                            @if (Session::get('amount') > 0)
-                            ({{ Session::get('amount') }})
-                            @endif
-                        </a></li>
+
+                    <li class="nav-item mx-0 mx-lg-1">
+                    @if (Session::get('amount') > 0)
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('cart.index') }}"> {{__('messages.cart')}} ({{ Session::get('amount') }})</a>
+                    @endif
+                    </li>
+                    
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"> {{__('messages.logout')}} </a></li>
 
