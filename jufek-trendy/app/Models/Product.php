@@ -11,9 +11,9 @@ class Product extends Model
 {
     use HasFactory;
 
-    //attributes id, name, size, stock, price, image, description, created_at, updated_at
+    //attributes id, name, size, stock, price, image, description, category_id, created_at, updated_at
     protected $fillable = [
-        'name', 'size', 'stock', 'price', 'image', 'description',
+        'name', 'size', 'stock', 'price', 'image', 'description', 'category_id'
     ];
 
     public static function validate(Request $request)
@@ -98,14 +98,24 @@ class Product extends Model
         $this->attributes['description'] = $description;
     }
 
+    public function getCategoryId()
+    {
+        return $this->attributes['category_id'];
+    }
+
+    public function setCategoryId($category_id)
+    {
+        $this->attributes['category_id'] = $category_id;
+    }
+
     public function items()
     {
         return $this->hasMany(Item::class);
     }
 
-    public function categories()
+    public function category()
     {
-        return $this->hasMany(Category::class);
+        return $this->belongsTo(Category::class);
     }
 
     public function customizations()

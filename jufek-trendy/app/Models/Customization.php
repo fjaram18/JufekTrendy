@@ -2,14 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class Customization extends Model
 
 {
-    //attributes id, name, size, location, price, timestamps
-    protected $fillable = ['name', 'size', 'location', 'price'];
+    //attributes id, name, size, location, price, product_id, image, timestamps
+    protected $fillable = ['name', 'size', 'location', 'price', 'image' ,'product_id'];
 
     public static function validate(Request $request)
     {
@@ -35,7 +36,7 @@ class Customization extends Model
 
     public function getName()
     {
-        return $this->attributes['name'];
+        return ucfirst($this->attributes['name']);
     }
 
     public function setName($name)
@@ -73,9 +74,29 @@ class Customization extends Model
         $this->attributes['price'] = $price;
     }
 
-    public function prodcuts()
+    public function getImage()
     {
-        return $this->hasMany(prodcut::class);
+        return $this->attributes['image'];
+    }
+
+    public function setImage($image)
+    {
+        $this->attributes['image'] = $image;
+    }
+
+    public function getProductId()
+    {
+        return $this->attributes['product_id'];
+    }
+
+    public function setProductId($product_id)
+    {
+        $this->attributes['product_id'] = $product_id;
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
     }
 
     public function items()

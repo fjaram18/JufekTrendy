@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Exception;
@@ -31,12 +32,17 @@ class AdminProductController extends Controller
             ["route" => "admin.product.list", "tittle" => __('messages.list_products')],
         ];
 
+        $data["title"] = __('messages.menu_products');
+
         return view('admin.admin_menu')->with("data", $data);
     }
 
     public function create()
     {
-        return view('admin.product.create');
+        $data = [];
+        $data["categories"] = Category::all();
+
+        return view('admin.product.create')->with("data", $data);
     }
 
     public function list() 
@@ -67,10 +73,27 @@ class AdminProductController extends Controller
 
     public function save(Request $request)
     {
+        
         Product::validate($request);
-        Product::create($request->only(["name", "size", "stock", "price", "image", "description"]));
+        $product = new Product();
 
-        return back()->with('success', 'Product successfully created');
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $nameImage = time().$image->getClientOriginalName();
+            $image->move(public_path().'/img/product',$nameImage);
+        };
+
+        $product->setName($request->input('name'));
+        $product->setSize($request->input('size'));
+        $product->setStock($request->input('stock'));
+        $product->setPrice($request->input('price'));
+        $product->setImage($nameImage);
+        $product->setDescription($request->input('description'));
+        $product->setCategoryId($request->input('category_id'));
+        $product->save();
+        //Product::create($request->only(["name", "size", "stock", "price", "image", "description", "category_id"]));
+
+        return back()->with('success', __('messages.product_succes'));
 
     }
 
@@ -80,6 +103,6 @@ class AdminProductController extends Controller
         $product = Product::find($id);
         $product->delete();
 
-        return redirect()->route('admin.product.list')->with('eliminate', 'Product successfully deleted');
+        return redirect()->route('admin.product.list')->with('eliminate', __('messages.product_delete'));
     }
 }

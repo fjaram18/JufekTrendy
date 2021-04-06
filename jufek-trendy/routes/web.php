@@ -22,11 +22,22 @@ Route::get('/admin/home', [App\Http\Controllers\Admin\AdminHomeController::class
 Route::get('/product/show/{id}', [App\Http\Controllers\User\ProductController::class, 'show'])->name('product.show');
 Route::get('/product/list', [App\Http\Controllers\User\ProductController::class, 'list'])->name('product.list');
 
+//Routes User Customizations
+Route::get('/customization/show/{id}', [App\Http\Controllers\User\CustomizationController::class, 'show'])->name('customization.show');
+
 //Routes User Shopping Cart
 Route::get('/cart/index', [App\Http\Controllers\User\CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/add/{id}', [App\Http\Controllers\User\CartController::class, 'add'])->name('cart.add');
+Route::get('/cart/addCustomization/{id}', [App\Http\Controllers\User\CartController::class, 'addCustomization'])->name('cart.addCustomization');
 Route::get('/cart/delete/{id}', [App\Http\Controllers\User\CartController::class, 'delete'])->name('cart.delete');
+Route::get('/cart/deleteCustomization', [App\Http\Controllers\User\CartController::class, 'deleteCustomization'])->name('cart.deleteCustomization');
 Route::get('/cart/removeAll', [App\Http\Controllers\User\CartController::class, 'removeAll'])->name('cart.removeAll');
+
+//Routes User Orders
+Route::get('/order/save', [App\Http\Controllers\User\OrderController::class, 'save'])->name("order.save");
+
+//Route search results
+Route::get('/search/index', [App\Http\Controllers\User\SearchController::class, 'index'])->name('search.index');
 
 // Auth
 Auth::routes();

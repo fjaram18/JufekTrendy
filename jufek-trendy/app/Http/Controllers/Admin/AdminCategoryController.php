@@ -1,5 +1,5 @@
 <?php
-//Autor: Katherin Valencia
+//Autor: Katherin Valencia and Juan Camilo Echeverri
 
 namespace App\Http\Controllers\Admin;
 
@@ -28,9 +28,10 @@ class AdminCategoryController extends Controller
     {
         $data = []; 
         $data["routes"] = [
-            ["route" => "admin.category.create", "tittle" => __('messages.create_category')],
+            ["route" => "admin.category.create", "tittle" => __('messages.create_categories')],
             ["route" => "admin.category.list", "tittle" => __('messages.list_categories')],
         ];
+        $data["title"] = __('messages.menu_categories');
 
         return view('admin.admin_menu')->with("data", $data);
     }
@@ -61,7 +62,7 @@ class AdminCategoryController extends Controller
     public function list()
     {
         $data = []; 
-        $data["category"] = Category::all();
+        $data["categories"] = Category::all();
 
         return view('admin.category.list')->with("data",$data);
     }
@@ -69,8 +70,9 @@ class AdminCategoryController extends Controller
     public function save(Request $request)
     {
         Category::validate($request);
-        
-        return back()->with('success', 'category successfully created');
+        Category::create($request->only(["name", "description"]));
+
+        return back()->with('success', __('messages.category_succes'));
     }
 
     public function delete($id)
@@ -78,6 +80,6 @@ class AdminCategoryController extends Controller
         $category = Category::findOrFail($id);
         $category->delete();
 
-        return redirect()->route('admin.category.list')->with('success', 'category successfully deleted');
+        return redirect()->route('admin.category.list')->with('eliminate', __('messages.category_delete'));
     }
 }

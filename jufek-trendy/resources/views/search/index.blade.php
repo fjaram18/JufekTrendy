@@ -7,7 +7,7 @@
     <div class="card">
         <div class="card-header text-white bg-secondary">
             <div class="row justify-content-center">
-                <h1>{{__('messages.avaible_products')}}</h1>
+                <h2>{{__('messages.search_results')}} <a style="color:white;">"{{ $data['term'] }}"</a></h2>
             </div>
         </div>
         <div class="card-body">

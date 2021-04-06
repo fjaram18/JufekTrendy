@@ -21,6 +21,8 @@ class CreateCustomizationsTable extends Migration
             $table->integer('size');
             $table->text('location');
             $table->integer('price');
+            $table->text('image');
+            $table->bigInteger('product_id')->unsigned();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });
