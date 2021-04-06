@@ -118,6 +118,7 @@ return [
     'customization_size' => 'Size',
     'customization_location' => 'Location',
     'customization_price' => 'Price',
+    'customization_image' => 'Image',
     'customization_product' => 'Product',
     
     //OrderAdminView

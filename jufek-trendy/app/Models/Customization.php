@@ -9,8 +9,8 @@ use Illuminate\Http\Request;
 class Customization extends Model
 
 {
-    //attributes id, name, size, location, price, product_id, timestamps
-    protected $fillable = ['name', 'size', 'location', 'price', 'product_id'];
+    //attributes id, name, size, location, price, product_id, image, timestamps
+    protected $fillable = ['name', 'size', 'location', 'price', 'image' ,'product_id'];
 
     public static function validate(Request $request)
     {
@@ -74,9 +74,29 @@ class Customization extends Model
         $this->attributes['price'] = $price;
     }
 
+    public function getImage()
+    {
+        return $this->attributes['image'];
+    }
+
+    public function setImage($image)
+    {
+        $this->attributes['image'] = $image;
+    }
+
+    public function getProductId()
+    {
+        return $this->attributes['product_id'];
+    }
+
+    public function setProductId($product_id)
+    {
+        $this->attributes['product_id'] = $product_id;
+    }
+
     public function product()
     {
-        return $this->belongsTo(Product::class);
+        return $this->hasMany(Product::class);
     }
 
     public function items()
