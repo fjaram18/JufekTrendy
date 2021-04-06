@@ -33,7 +33,7 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="holder">
-                                    <img src="{{ asset('/img/customization').'/'.$data['customization']->getId().'.jpeg' }}" alt="{{__('messages.image_error')}}">
+                                    <img src="{{ asset('/img/customization').'/'.$data['customization']->getImage() }}" alt="{{__('messages.image_error')}}">
                                 </div>
                             </div>
                             <div class="col-md-3" style="padding-top: 40px; padding-left:40px;">
@@ -100,7 +100,7 @@
                     <a>{{__('messages.price_total')}} ({{ Session::get('amount') }}):</a>
                     <b style="font-size: 150%; padding-left:6px;">${{ $data["totalPrice"] }} </b>
                     <div style="padding-top:10px;">
-                    <a href="{{ route('order.save') }}" class="btn btn-primary btn-lg" type="button">{{__('messages.confirm_order')}}</a>
+                    <a href="{{ route('order.save') }}" class="btn btn-primary btn-sm" type="button">{{__('messages.confirm_order')}}</a>
                     </div>
                 </div>
             </div>

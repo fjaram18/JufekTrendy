@@ -15,7 +15,9 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="{{ asset('/css/styles.css') }}" rel="stylesheet" />}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/css/styles.css') }}" rel="stylesheet" />
     <link href="{{ asset('/css/custom-styles.css') }}" rel="stylesheet" />
 </head>
 
@@ -114,7 +116,7 @@
     <!-- Third party plugin JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <!-- Core theme JS-->
-    <script src="{{ asset('/js/scripts.js') }}"></script>
+    <script src="{{ asset('/js/scripts.js') }}" type="text/js"></script>
 </body>
 
 </html>

@@ -35,6 +35,11 @@ Route::get('/cart/removeAll', [App\Http\Controllers\User\CartController::class, 
 
 //Routes User Orders
 Route::get('/order/save', [App\Http\Controllers\User\OrderController::class, 'save'])->name("order.save");
+Route::get('/order/show/{id}', [App\Http\Controllers\User\OrderController::class, 'show'])->name("order.show");
+Route::get('/order/cancel/{id}', [App\Http\Controllers\User\OrderController::class, 'cancel'])->name("order.cancel");
+Route::get('/order/list', [App\Http\Controllers\User\OrderController::class, 'list'])->name("order.list");
+Route::get('/order/createPDF/{id}', [App\Http\Controllers\User\OrderController::class, 'createPDF'])->name("order.createPDF");
+Route::get('/order/downloadPDF/{id}', [App\Http\Controllers\User\OrderController::class, 'downloadPDF'])->name("order.downloadPDF");
 
 //Route search results
 Route::get('/search/index', [App\Http\Controllers\User\SearchController::class, 'index'])->name('search.index');
