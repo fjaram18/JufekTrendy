@@ -66,7 +66,7 @@ class CartController extends Controller
         $totalAmount = array_sum($products);
         $request->session()->put('amount', $totalAmount);
         if($request->session()->get("customization")) {
-            $request->session()->decrement("amount");
+            $request->session()->increment("amount");
         }
 
         return back();
@@ -98,6 +98,6 @@ class CartController extends Controller
         $request->session()->forget('products');
         $request->session()->forget('amount');
         $request->session()->forget('customization');
-        return back();
+        return redirect()->route('home.index');
     }
 }

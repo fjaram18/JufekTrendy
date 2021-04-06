@@ -33,6 +33,9 @@ Route::get('/cart/delete/{id}', [App\Http\Controllers\User\CartController::class
 Route::get('/cart/deleteCustomization', [App\Http\Controllers\User\CartController::class, 'deleteCustomization'])->name('cart.deleteCustomization');
 Route::get('/cart/removeAll', [App\Http\Controllers\User\CartController::class, 'removeAll'])->name('cart.removeAll');
 
+//Routes User Orders
+Route::get('/order/save', [App\Http\Controllers\User\OrderController::class, 'save'])->name("order.save");
+
 //Route search results
 Route::get('/search/index', [App\Http\Controllers\User\SearchController::class, 'index'])->name('search.index');
 

@@ -50,7 +50,9 @@
                                 <h4>${{ $data['customization']->getPrice()  }}</h4>
                             </div>
                         </div>
+                        @if($data["productsInCart"])
                         <hr>
+                        @endif
                         @endif
                         @foreach($data["productsInCart"] as $key => $product)
                         <div class="row">
@@ -97,6 +99,9 @@
                 <div class="card-footer text-white bg-secondary" style="text-align: right">
                     <a>{{__('messages.price_total')}} ({{ Session::get('amount') }}):</a>
                     <b style="font-size: 150%; padding-left:6px;">${{ $data["totalPrice"] }} </b>
+                    <div style="padding-top:10px;">
+                    <a href="{{ route('order.save') }}" class="btn btn-primary btn-lg" type="button">{{__('messages.confirm_order')}}</a>
+                    </div>
                 </div>
             </div>
         </div>
