@@ -62,11 +62,6 @@
                 </div>
             </div>
         </div>
-        <div class="card-footer text-white bg-secondary" style="text-align: center">
-            @if($data["order"][0]->getState() == "Active")
-            <a href="{{ route('order.cancel', ['id'=> $data['order'][0]->getId()]) }}" class="btn btn-danger btn-sm" type="button">{{__('messages.cancel_order')}}</a>
-            @endif
-        </div>
     </div>
 </div>
 </body>
