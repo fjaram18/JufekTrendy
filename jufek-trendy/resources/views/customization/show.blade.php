@@ -3,6 +3,7 @@
 @section("title", $data["title"])
 
 @section('content')
+<!-- Author: Federico Jaramillo -->
 <div class="container">
     <div class="card">
         <div class="card-header text-white bg-secondary">
