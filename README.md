@@ -30,5 +30,8 @@ Initialize server:
 
 http://127.0.0.1:8000/ ---> home
 
+### AWS 
+http://ec2-54-172-214-53.compute-1.amazonaws.com/JufekTrendy/jufek-trendy/public/ 
+
 
 
