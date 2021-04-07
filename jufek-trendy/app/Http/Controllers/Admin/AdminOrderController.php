@@ -73,6 +73,31 @@ class AdminOrderController extends Controller
         return view('admin.order.list')->with("data",$data);
     }
 
+    public function sort($sort){
+
+        $data = []; 
+        if($sort == 'date'){
+
+            $data["orders"] = Order::all()->sortBy('date');
+
+        } elseif($sort == 'id'){
+            
+            $data["orders"] = Order::all()->sortBy('id');
+            
+        } elseif($sort == 'total'){
+            
+            $data["orders"] = Order::all()->sortBy('total');
+            
+        } elseif($sort == 'user'){
+            
+            $data["orders"] = Order::all()->sortBy('user_id');
+
+        }
+        
+        return view('admin.order.list')->with("data",$data);
+        
+    }
+
     public function save(Request $request)
     {
         Order::validate($request);

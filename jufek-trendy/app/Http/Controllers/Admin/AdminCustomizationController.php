@@ -108,4 +108,24 @@ class AdminCustomizationController extends Controller
 
         return view('admin.customization.list')->with("data", $data);
     }
+
+    public function sort($sort){
+
+        $data = []; 
+        if($sort == 'name'){
+
+            $data["customizations"] = Customization::all()->sortBy('name');
+
+        } elseif($sort == 'id'){
+            
+            $data["customizations"] = Customization::all()->sortBy('id');
+            
+        } elseif($sort == "price"){
+            
+            $data["customizations"] = Customization::all()->sortBy('price');
+        }
+        
+        return view('admin.customization.list')->with("data",$data);
+        
+    }
 }

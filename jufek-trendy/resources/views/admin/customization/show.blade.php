@@ -18,6 +18,9 @@
                 <div class="block">
                     <a href="{{ route('admin.customization.delete', ['id' => $data["customization"]->getid()])}}" type="submit" class="btn btn-danger"> {{__('messages.customization_remove')}}</a>
                 </div>
+                <div class='mx-auto' style="padding-right: 550px;"">
+                    <a href="{{route('admin.customization.list')}}" class="btn btn-secondary " type="button"> {{__('messages.go_back')}}  </a>
+                </div>
             </div>
         </div>
     </div>

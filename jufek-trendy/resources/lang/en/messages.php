@@ -57,6 +57,9 @@ return [
     'order' => 'Order',
     'category' => 'Category',
     'item' => 'Item',
+    'welcome_admin_message' => 'Welcome to Admin Menu',
+
+    
 
     // Menu Admin Product
     'create_products' => 'Create Products',
@@ -154,8 +157,17 @@ return [
     'cancel_order' => 'Cancel Order',
 
 
+    //Sort
+    'sort_id' => 'Sort By Id',
+    'sort_name' => 'Sort By Name',
+    'sort_price' => 'Sort By Price',
+    'sort_date' => 'Sort By Date',
+    'sort_total' => 'Sort By Total',
+    'sort_user' => 'Sort By User',
+
     // Forms
-    'send' => 'Send',
+    'send' => 'SEND',
+    'go_back' => 'Go Back',
  
 
 
