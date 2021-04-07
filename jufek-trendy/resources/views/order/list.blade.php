@@ -11,7 +11,7 @@
                     <h1>{{__('messages.my_order')}}</h1>
                 </div>
                 <div class="col-md-2" style="text-align: right;">
-                    <a href="">{{__('messages.export')}}</a>
+                    <a href="{{ route('order.export') }}">{{__('messages.export')}}</a>
                 </div>
             </div>
         </div>

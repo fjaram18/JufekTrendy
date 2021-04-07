@@ -40,6 +40,7 @@ Route::get('/order/cancel/{id}', [App\Http\Controllers\User\OrderController::cla
 Route::get('/order/list', [App\Http\Controllers\User\OrderController::class, 'list'])->name("order.list");
 Route::get('/order/createPDF/{id}', [App\Http\Controllers\User\OrderController::class, 'createPDF'])->name("order.createPDF");
 Route::get('/order/downloadPDF/{id}', [App\Http\Controllers\User\OrderController::class, 'downloadPDF'])->name("order.downloadPDF");
+Route::get('/order/export', [App\Http\Controllers\User\OrderController::class, 'export'])->name("order.export");
 
 //Route search results
 Route::get('/search/index', [App\Http\Controllers\User\SearchController::class, 'index'])->name('search.index');

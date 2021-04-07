@@ -24,7 +24,7 @@
                 </div>
                 <div class="card-body">
                     <ul>
-                        @if($data["customization"][0])
+                        @if($data["customization"])
                         <div class="row">
                             <div class="col-md-2">
                                 <div class="holder">
