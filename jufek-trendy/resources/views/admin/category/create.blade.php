@@ -29,6 +29,9 @@
                             <input required type="text" class="form-control" placeholder="Article of clothing" name="description" value="{{ old('description') }}"/>
                         </div>                          
                         <button type="submit" class="btn btn-primary my-1"> {{__('messages.send')}}  </button>
+                        <div class='mx-auto' style="padding-right: 550px;"">
+                            <a href="{{route('admin.category.menu')}}" class="btn btn-secondary " type="button"> {{__('messages.go_back')}}  </a>
+                        </div> 
                     </form>
                 </div>
             </div>

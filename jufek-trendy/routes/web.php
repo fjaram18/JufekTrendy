@@ -55,6 +55,7 @@ Route::get('/admin/customization/show/{id}', [App\Http\Controllers\Admin\AdminCu
 Route::get('/admin/customization/create', [App\Http\Controllers\Admin\AdminCustomizationController::class, 'create'])->name("admin.customization.create");
 Route::post('/admin/customization/save', [App\Http\Controllers\Admin\AdminCustomizationController::class, 'save'])->name("admin.customization.save");
 Route::get('/admin/customization/list', [App\Http\Controllers\Admin\AdminCustomizationController::class, 'list'])->name("admin.customization.list");
+Route::get('/admin/customization/sort/{sort}', [App\Http\Controllers\Admin\AdminCustomizationController::class, 'sort'])->name("admin.customization.sort");
 Route::get('/admin/customization/delete/{id}', [App\Http\Controllers\Admin\AdminCustomizationController::class, 'delete'])->name("admin.customization.delete");
 
 // Routes Admin Product
@@ -63,6 +64,7 @@ Route::get('/admin/product/show/{id}', [App\Http\Controllers\Admin\AdminProductC
 Route::get('/admin/product/create', [App\Http\Controllers\Admin\AdminProductController::class, 'create'])->name("admin.product.create");
 Route::post('/admin/product/save', [App\Http\Controllers\Admin\AdminProductController::class, 'save'])->name("admin.product.save");
 Route::get('/admin/product/list', [App\Http\Controllers\Admin\AdminProductController::class, 'list'])->name("admin.product.list");
+Route::get('/admin/product/sort/{sort}', [App\Http\Controllers\Admin\AdminProductController::class, 'sort'])->name("admin.product.sort");
 Route::get('/admin/product/delete/{id}', [App\Http\Controllers\Admin\AdminProductController::class, 'delete'])->name("admin.product.delete");
 
 // Routes Admin Order
@@ -71,6 +73,7 @@ Route::get('/admin/order/show/{id}', [App\Http\Controllers\Admin\AdminOrderContr
 Route::get('/admin/order/create', [App\Http\Controllers\Admin\AdminOrderController::class, 'create'])->name("admin.order.create");
 Route::post('/admin/order/save', [App\Http\Controllers\Admin\AdminOrderController::class, 'save'])->name("admin.order.save");
 Route::get('/admin/order/list', [App\Http\Controllers\Admin\AdminOrderController::class, 'list'])->name("admin.order.list");
+Route::get('/admin/order/sort/{sort}', [App\Http\Controllers\Admin\AdminOrderController::class, 'sort'])->name("admin.order.sort");
 Route::get('/admin/order/delete/{id}', [App\Http\Controllers\Admin\AdminOrderController::class, 'delete'])->name("admin.order.delete");
 
 // Routes Admin Category
@@ -78,7 +81,8 @@ Route::get('/admin/category/menu', [App\Http\Controllers\Admin\AdminCategoryCont
 Route::get('/admin/category/show/{id}', [App\Http\Controllers\Admin\AdminCategoryController::class, 'show'])->name("admin.category.show");
 Route::get('/admin/category/create', [App\Http\Controllers\Admin\AdminCategoryController::class, 'create'])->name("admin.category.create");
 Route::post('/admin/category/save', [App\Http\Controllers\Admin\AdminCategoryController::class, 'save'])->name("admin.category.save");
-Route::get('/admin/category/list', [App\Http\Controllers\Admin\AdminCategoryController::class, 'list'])->name("admin.category.list");
+Route::get('/admin/category/list/', [App\Http\Controllers\Admin\AdminCategoryController::class, 'list'])->name("admin.category.list");
+Route::get('/admin/category/sort/{sort}', [App\Http\Controllers\Admin\AdminCategoryController::class, 'sort'])->name("admin.category.sort");
 Route::get('/admin/category/delete/{id}', [App\Http\Controllers\Admin\AdminCategoryController::class, 'delete'])->name("admin.category.delete");
 
 // Routes Admin Item

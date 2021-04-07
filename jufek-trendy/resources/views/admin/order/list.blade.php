@@ -30,6 +30,23 @@
                             @endforeach    
                             </tbody>
                         </table>
+                        <div class="row justify-content-center">
+                            <div style="padding-right: 12px;" >
+                                <a href="{{route('admin.order.menu')}}" class="btn btn-secondary " type="button"> {{__('messages.go_back')}}  </a>
+                            </div>
+                            <div  style="padding-right: 10px;">
+                                <a href="{{route('admin.order.sort', ['sort' => "id"])}}" class="btn btn-primary" type="button"> {{__('messages.sort_id')}}  </a>
+                            </div>
+                            <div  style="padding-right: 10px;">
+                                <a href="{{route('admin.order.sort', ['sort' => "date"])}}" class="btn btn-primary " type="button"> {{__('messages.sort_date')}}  </a>
+                            </div>
+                            <div  style="padding-right: 10px;">
+                                <a href="{{route('admin.order.sort', ['sort' => "total"])}}" class="btn btn-primary " type="button"> {{__('messages.sort_total')}}  </a>
+                            </div>
+                            <div  style="padding-right: 20px;">
+                                <a href="{{route('admin.order.sort', ['sort' => "user"])}}" class="btn btn-primary " type="button"> {{__('messages.sort_user')}}  </a>
+                            </div>
+                        </div>
                     </ul>
                 </div>
             </div>

@@ -20,6 +20,9 @@
                 <div class="block">
                     <a href="{{ route('admin.order.delete', ['id' => $data["order"]->getid()])}}" type="submit" class="btn btn-danger"> {{__('messages.order_remove')}}</a>
                 </div>
+                <div class='mx-auto' style="padding-right: 550px;"">
+                    <a href="{{route('admin.order.list')}}" class="btn btn-secondary " type="button"> {{__('messages.go_back')}}  </a>
+                </div>
             </div>
         </div>
     </div>

@@ -15,6 +15,9 @@
                 <div class="block">
                     <a href="{{ route('admin.category.delete', ['id' => $data["category"]->getid()])}}" type="submit" class="btn btn-danger"> {{__('messages.category_remove')}}</a>
                 </div>
+                <div class='mx-auto' style="padding-right: 550px;"">
+                    <a href="{{route('admin.category.list')}}" class="btn btn-secondary " type="button"> {{__('messages.go_back')}}  </a>
+                </div>
             </div>
         </div>
     </div>

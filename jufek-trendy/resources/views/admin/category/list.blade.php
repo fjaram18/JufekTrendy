@@ -26,6 +26,17 @@
                             @endforeach    
                             </tbody>
                         </table>
+                        <div class="row justify-content-center">
+                            <div style="padding-right: 100px;" >
+                                <a href="{{route('admin.category.menu')}}" class="btn btn-secondary " type="button"> {{__('messages.go_back')}}  </a>
+                            </div>
+                            <div  style="padding-right: 100px;">
+                                <a href="{{route('admin.category.sort', ['sort' => "id"])}}" class="btn btn-primary" type="button"> {{__('messages.sort_id')}}  </a>
+                            </div>
+                            <div  style="padding-right: 100px;">
+                                <a href="{{route('admin.category.sort', ['sort' => "name"])}}" class="btn btn-primary " type="button"> {{__('messages.sort_name')}}  </a>
+                            </div>
+                        </div>
                     </ul>
                 </div>
             </div>

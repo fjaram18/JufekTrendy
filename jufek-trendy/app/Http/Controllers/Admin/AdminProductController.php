@@ -52,6 +52,26 @@ class AdminProductController extends Controller
         return view('admin.product.list')->with("data", $data);
     }
 
+    public function sort($sort){
+
+        $data = []; 
+        if($sort == 'name'){
+
+            $data["products"] = Product::all()->sortBy('name');
+
+        } elseif($sort == 'id'){
+            
+            $data["products"] = Product::all()->sortBy('id');
+            
+        } elseif($sort == "price"){
+            
+            $data["products"] = Product::all()->sortBy('price');
+        }
+        
+        return view('admin.product.list')->with("data",$data);
+        
+    }
+
     public function show($id)
     {
         try {

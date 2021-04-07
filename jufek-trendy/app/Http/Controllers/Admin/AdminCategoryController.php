@@ -67,6 +67,22 @@ class AdminCategoryController extends Controller
         return view('admin.category.list')->with("data",$data);
     }
 
+    public function sort($sort){
+
+        $data = []; 
+        if($sort == 'name'){
+
+            $data["categories"] = Category::all()->sortBy('name');
+
+        } elseif($sort == 'id'){
+            
+            $data["categories"] = Category::all()->sortBy('id');
+        }   
+        
+        return view('admin.category.list')->with("data",$data);
+        
+    }
+
     public function save(Request $request)
     {
         Category::validate($request);

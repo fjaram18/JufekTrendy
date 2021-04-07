@@ -57,10 +57,11 @@
                                     <option value="{{ $category->getId() }}">{{ $category->getName() }}</option>
                                 @endforeach
                             </select>
-                        </div>
-                                      
-                                                 
-                        <button type="submit" class="btn btn-primary my-1"> {{__('messages.send')}}  </button>
+                        </div>              
+                        <button type="submit" class="btn btn-primary my-1 btn-lg"> {{__('messages.send')}}  </button>
+                        <div class='mx-auto' style="padding-right: 550px;"">
+                            <a href="{{route('admin.product.menu')}}" class="btn btn-secondary " type="button"> {{__('messages.go_back')}}  </a>
+                        </div>                       
                     </form>
                 </div>
             </div>
