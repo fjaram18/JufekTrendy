@@ -25,7 +25,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="{{ route('product.list') }}"> Jufek Trendy </a>
+            <a class="navbar-brand js-scroll-trigger" href="{{ route('home.index') }}"> Jufek Trendy </a>
             @if(Auth::check())
             @if( Auth::user()->getRole() == 'admin')
             <a href="{{ route('admin.home') }}">{{__('messages.admin_menu')}}</a>

@@ -44,6 +44,10 @@ return [
     'order_created' => 'Order created',
     'state' => 'State',
 
+    //Home
+    'welcome_message' => 'Welcome to Jufek Trendy',
+    'customizable_products' => 'Customizable Products',
+
     //Search results
     'search_results' => 'Search results for',
 
@@ -143,7 +147,7 @@ return [
     'order_state' => 'State',
     'order_payment_type' => 'Payment Type',
     'order_user' => 'User',
-    'my_order' => 'My orders',
+    'my_order' => 'My Orders',
     'view' => 'View',
     'export' => 'Export all orders',
     'print' => 'Print PDF',

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\Customization;
+use Illuminate\Support\Facades\DB;
 use App\Models\Product;
 use Exception;
 
@@ -23,8 +23,22 @@ class CustomizationController extends Controller
             return view('customization.show')->with("data",$data);
 
         } catch (Exception $e) {
-
             return redirect()->route('home.index');
         }
+    }
+
+    public function list() 
+    {
+
+
+            $data = []; 
+            $data["title"] = "Customizable products";
+            $products = Product::has('customizations')->get();
+            $data["products"] = $products;
+
+            return view('customization.list')->with("data",$data);
+
+
+
     }
 }
