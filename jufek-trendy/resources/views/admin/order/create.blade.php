@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<!-- Author: Juan Camilo Echeverri -->
 @section('content')
 
 <div class="container">

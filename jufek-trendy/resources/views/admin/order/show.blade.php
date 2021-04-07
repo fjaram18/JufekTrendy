@@ -1,6 +1,6 @@
 
 @extends('layouts.app')
-
+<!-- Author: Juan Camilo Echeverri -->
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
