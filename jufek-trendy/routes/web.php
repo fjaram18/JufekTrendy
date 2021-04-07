@@ -24,6 +24,7 @@ Route::get('/product/list', [App\Http\Controllers\User\ProductController::class,
 
 //Routes User Customizations
 Route::get('/customization/show/{id}', [App\Http\Controllers\User\CustomizationController::class, 'show'])->name('customization.show');
+Route::get('/customization/list', [App\Http\Controllers\User\CustomizationController::class, 'list'])->name('customization.list');
 
 //Routes User Shopping Cart
 Route::get('/cart/index', [App\Http\Controllers\User\CartController::class, 'index'])->name('cart.index');
