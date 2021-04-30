@@ -16,7 +16,7 @@ class AdminCustomizationController extends Controller
     {
         $this->middleware('auth');
         $this->middleware(function ($request, $next) {
-            if(Auth::user()->getRole()=="user"){
+            if (Auth::user()->getRole()=="user") {
                 return redirect()->route('home.index');
             }
 
@@ -41,18 +41,14 @@ class AdminCustomizationController extends Controller
     public function show($id)
     {
         try {
-
             $data = []; //to be sent to the view
             $customization = Customization::findOrFail($id); //Customization to be shown
             $data["title"] = $customization->getName();
             $data["customization"] = $customization;
             
             return view('admin.customization.show')->with("data", $data);
-
-        } catch (Exception $e){
-
+        } catch (Exception $e) {
             return redirect()->route('home.index');
-            
         }
     }
 
@@ -71,10 +67,10 @@ class AdminCustomizationController extends Controller
         Customization::validate($request);
         $customization = new Customization();
 
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $image = $request->file('image');
             $nameImage = time().$image->getClientOriginalName();
-            $image->move(public_path().'/img/customization',$nameImage);
+            $image->move(public_path().'/img/customization', $nameImage);
         };
 
         $customization->setName($request->input('name'));
@@ -90,16 +86,15 @@ class AdminCustomizationController extends Controller
     }
 
 
-    public function delete($id) 
+    public function delete($id)
     {
         
         Customization::destroy($id);
         return redirect()->route('admin.customization.list')->with('eliminate', __('messages.customization_delete'));
-       
     }
 
 
-    public function list() 
+    public function list()
     {
         $data = []; //to be sent to the view
         $data["title"] = "List of Customizations";
@@ -109,23 +104,18 @@ class AdminCustomizationController extends Controller
         return view('admin.customization.list')->with("data", $data);
     }
 
-    public function sort($sort){
+    public function sort($sort)
+    {
 
-        $data = []; 
-        if($sort == 'name'){
-
+        $data = [];
+        if ($sort == 'name') {
             $data["customizations"] = Customization::all()->sortBy('name');
-
-        } elseif($sort == 'id'){
-            
+        } elseif ($sort == 'id') {
             $data["customizations"] = Customization::all()->sortBy('id');
-            
-        } elseif($sort == "price"){
-            
+        } elseif ($sort == "price") {
             $data["customizations"] = Customization::all()->sortBy('price');
         }
         
-        return view('admin.customization.list')->with("data",$data);
-        
+        return view('admin.customization.list')->with("data", $data);
     }
 }

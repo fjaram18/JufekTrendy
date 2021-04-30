@@ -9,7 +9,6 @@ use App\Models\Product;
 use App\Models\Customization;
 
 class CartController extends Controller
-
 {
     public function index(Request $request)
     {
@@ -20,7 +19,7 @@ class CartController extends Controller
         $listAmountsInCart = array();
         $priceTotal = 0;
         $customization = $request->session()->get("customization");
-        if($customization) {
+        if ($customization) {
             $id = $customization;
             $customization = Customization::where('id', '=', $id)->with('product')->get();
             $priceTotal = ($customization[0]->getPrice()) + ($customization[0]->product->getPrice());
@@ -52,7 +51,7 @@ class CartController extends Controller
 
         $totalAmount = array_sum($products);
         $request->session()->put('amount', $totalAmount);
-        if($request->session()->get("customization")) {
+        if ($request->session()->get("customization")) {
             $request->session()->increment("amount");
         }
 
@@ -66,11 +65,11 @@ class CartController extends Controller
         $request->session()->put('products', $products);
         $totalAmount = array_sum($products);
         $request->session()->put('amount', $totalAmount);
-        if($request->session()->get("customization")) {
+        if ($request->session()->get("customization")) {
             $request->session()->increment("amount");
         }
 
-        if($request->session()->get("amount") == 0) {
+        if ($request->session()->get("amount") == 0) {
             return redirect()->route('home.index');
         } else {
             return back();
@@ -80,7 +79,7 @@ class CartController extends Controller
     public function addCustomization($id, Request $request)
     {
         //Check if there is a personalized product on car, since it can only have 1 per order
-        if($request->session()->get("customization")) {
+        if ($request->session()->get("customization")) {
             return redirect()->route('home.index');
         }
 
@@ -95,7 +94,7 @@ class CartController extends Controller
         $request->session()->forget('customization');
         $request->session()->decrement("amount");
 
-        if($request->session()->get("amount") == 0) {
+        if ($request->session()->get("amount") == 0) {
             return redirect()->route('home.index');
         } else {
             return back();

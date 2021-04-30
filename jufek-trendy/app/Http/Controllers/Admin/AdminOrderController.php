@@ -16,18 +16,17 @@ class AdminOrderController extends Controller
     {
         $this->middleware('auth');
         $this->middleware(function ($request, $next) {
-            if(Auth::user()->getRole()=="user"){
+            if (Auth::user()->getRole()=="user") {
                 return redirect()->route('home.index');
             }
 
             return $next($request);
-
         });
     }
 
     public function menu()
     {
-        $data = []; 
+        $data = [];
         $data["routes"] = [
             ["route" => "admin.order.create", "tittle" => __('messages.create_orders')],
             ["route" => "admin.order.list", "tittle" => __('messages.list_orders')],
@@ -41,19 +40,14 @@ class AdminOrderController extends Controller
     public function show($id)
     {
         try {
-
-            $data = []; 
+            $data = [];
             $order = Order::findOrFail($id);
             $data["order"] = $order;
     
             return view('admin.order.show')->with("data", $data);
-
-        } catch (Exception $e){
-
+        } catch (Exception $e) {
             return redirect()->route('home.index');
-
         }
-
     }
 
     public function create()
@@ -61,47 +55,45 @@ class AdminOrderController extends Controller
         $data = []; //to be sent to the view
         $data["users"] = User::all();
 
-        return view('admin.order.create')->with("data",$data);
+        return view('admin.order.create')->with("data", $data);
     }
 
     public function list()
     {
-        $data = []; 
+        $data = [];
         $data["orders"] = Order::all();
         
 
-        return view('admin.order.list')->with("data",$data);
+        return view('admin.order.list')->with("data", $data);
     }
 
-    public function sort($sort){
+    public function sort($sort)
+    {
 
-        $data = []; 
-        if($sort == 'date'){
-
+        $data = [];
+        if ($sort == 'date') {
             $data["orders"] = Order::all()->sortBy('date');
-
-        } elseif($sort == 'id'){
-            
+        } elseif ($sort == 'id') {
             $data["orders"] = Order::all()->sortBy('id');
-            
-        } elseif($sort == 'total'){
-            
+        } elseif ($sort == 'total') {
             $data["orders"] = Order::all()->sortBy('total');
-            
-        } elseif($sort == 'user'){
-            
+        } elseif ($sort == 'user') {
             $data["orders"] = Order::all()->sortBy('user_id');
-
         }
         
-        return view('admin.order.list')->with("data",$data);
-        
+        return view('admin.order.list')->with("data", $data);
     }
 
     public function save(Request $request)
     {
         Order::validate($request);
-        Order::create($request->only(['order_date', 'total', 'shipping_date', 'order_state', 'payment_type', 'user_id']));
+        Order::create($request->only([
+        'order_date',
+        'total',
+        'shipping_date',
+        'order_state',
+        'payment_type',
+        'user_id']));
         
         return back()->with('success', __('messages.order_succes'));
     }
@@ -111,6 +103,6 @@ class AdminOrderController extends Controller
         $order = Order::findOrFail($id);
         $order->delete();
         
-        return redirect()->route('admin.order.list')->with('eliminate',  __('messages.order_delete'));
+        return redirect()->route('admin.order.list')->with('eliminate', __('messages.order_delete'));
     }
 }
