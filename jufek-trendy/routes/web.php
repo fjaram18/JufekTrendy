@@ -92,3 +92,6 @@ Route::get('/admin/item/create', [App\Http\Controllers\Admin\AdminItemController
 Route::post('/admin/item/save', [App\Http\Controllers\Admin\AdminItemController::class, 'save'])->name("admin.item.save");
 Route::get('/admin/item/list', [App\Http\Controllers\Admin\AdminItemController::class, 'list'])->name("admin.item.list");
 Route::get('/admin/item/delete/{id}', [App\Http\Controllers\Admin\AdminItemController::class, 'delete'])->name("admin.item.delete");
+
+// Routes Lang
+Route::get('lang/{lang}',[App\Http\Controllers\LanguageController::class, 'switchLang'])->name('lang.switch');

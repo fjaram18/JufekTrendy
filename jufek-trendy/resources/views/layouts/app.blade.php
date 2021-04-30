@@ -25,12 +25,14 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
         <div class="container">
+            
             <a class="navbar-brand js-scroll-trigger" href="{{ route('home.index') }}"> Jufek Trendy </a>
             @if(Auth::check())
             @if( Auth::user()->getRole() == 'admin')
             <a href="{{ route('admin.home') }}">{{__('messages.admin_menu')}}</a>
             @endif
             @endif
+            
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     @guest
@@ -62,6 +64,22 @@
                     </form>
                     @endguest
                 </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                            {{ Config::get('languages')[App::getLocale()] }}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            @foreach (Config::get('languages') as $lang => $language)
+                                @if ($lang != App::getLocale())
+                                    <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}">
+                                        {{$language}}
+                                    </a>
+                                @endif
+                            @endforeach
+                        </div>
+                    </li>
+                </ul> 
             </div>
         </div>
     </nav>
