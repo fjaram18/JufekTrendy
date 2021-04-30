@@ -15,12 +15,11 @@ class AdminProductController extends Controller
     {
         $this->middleware('auth');
         $this->middleware(function ($request, $next) {
-            if(Auth::user()->getRole()=="user"){
+            if (Auth::user()->getRole()=="user") {
                 return redirect()->route('home.index');
             }
 
             return $next($request);
-
         });
     }
 
@@ -45,50 +44,39 @@ class AdminProductController extends Controller
         return view('admin.product.create')->with("data", $data);
     }
 
-    public function list() 
+    public function list()
     {
         $data = []; //to be sent to the view
         $data["products"] = Product::all()->sortBy('id');
         return view('admin.product.list')->with("data", $data);
     }
 
-    public function sort($sort){
+    public function sort($sort)
+    {
 
-        $data = []; 
-        if($sort == 'name'){
-
+        $data = [];
+        if ($sort == 'name') {
             $data["products"] = Product::all()->sortBy('name');
-
-        } elseif($sort == 'id'){
-            
+        } elseif ($sort == 'id') {
             $data["products"] = Product::all()->sortBy('id');
-            
-        } elseif($sort == "price"){
-            
+        } elseif ($sort == "price") {
             $data["products"] = Product::all()->sortBy('price');
         }
         
-        return view('admin.product.list')->with("data",$data);
-        
+        return view('admin.product.list')->with("data", $data);
     }
 
     public function show($id)
     {
         try {
-
             $data = []; //to be sent to the view
             $product = Product::findOrFail($id);
             $data["product"] = $product;
     
             return view('admin.product.show')->with("data", $data);
-
-        } catch (Exception $e){
-
+        } catch (Exception $e) {
             return redirect()->route('home.index');
-
         }
-
-
     }
 
     public function save(Request $request)
@@ -97,10 +85,10 @@ class AdminProductController extends Controller
         Product::validate($request);
         $product = new Product();
 
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $image = $request->file('image');
             $nameImage = time().$image->getClientOriginalName();
-            $image->move(public_path().'/img/product',$nameImage);
+            $image->move(public_path().'/img/product', $nameImage);
         };
 
         $product->setName($request->input('name'));
@@ -114,7 +102,6 @@ class AdminProductController extends Controller
         //Product::create($request->only(["name", "size", "stock", "price", "image", "description", "category_id"]));
 
         return back()->with('success', __('messages.product_succes'));
-
     }
 
     public function delete($id)

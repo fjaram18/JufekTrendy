@@ -52,18 +52,17 @@ class OrderController extends Controller
             $products = Product::all();
             $productsInCart = array();
             $total = 0;
-
-            $customization = $request->session()->get("customization"); //obtenemos id de la personalización guardada en sesion
-            if ($customization) 
-            {
+            
+            //obtenemos id de la personalización guardada en sesion
+            $customization = $request->session()->get("customization");
+            if ($customization) {
                 $id = $customization;
                 $customization = Customization::where('id', '=', $id)->with('product')->get();
                 $total = ($customization[0]->getPrice()) + ($customization[0]->product->getPrice());
             }
 
             $ids = $request->session()->get("products"); //obtenemos ids de productos guardados en session
-            if ($ids) 
-            {
+            if ($ids) {
                 foreach ($products as $product) {
                     if (in_array($product->getId(), array_keys($ids))) {
                         $productsInCart[$product->getId()] = $product;
@@ -93,8 +92,7 @@ class OrderController extends Controller
                 $request->only(['order_date', 'total', 'shipping_date', 'order_state', 'payment_type', 'user_id'])
             );
 
-            if ($customization[0]) 
-            { //agregamos el producto con perzonalización a la orden
+            if ($customization[0]) { //agregamos el producto con perzonalización a la orden
                 $request = new Request([
                     'amount' => 1,
                     'subtotal' => ($customization[0]->getPrice()) + ($customization[0]->product->getPrice()),
@@ -107,8 +105,7 @@ class OrderController extends Controller
                 Item::create($request->only(['amount', 'subtotal', 'order_id', 'product_id', 'customization_id']));
             }
 
-            if ($ids) 
-            { //agregamos el resto de productos a la orden
+            if ($ids) { //agregamos el resto de productos a la orden
                 foreach ($productsInCart as $product) {
                     $request = new Request([
                         'amount' => intval($ids[$product->getId()]),
@@ -167,7 +164,8 @@ class OrderController extends Controller
             return redirect()->route('home.index');
         }
     }
-    public function export() {
+    public function export()
+    {
         return Excel::download(new OrdersExport, 'orders.xlsx');
     }
 }

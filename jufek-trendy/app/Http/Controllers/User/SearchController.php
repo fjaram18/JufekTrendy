@@ -8,14 +8,13 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 
 class SearchController extends Controller
-
 {
     public function index(Request $request)
     {
         $data = []; //to be sent to the view
         $products = Product::where([
             ['stock','>',0],
-            [function($query) use ($request) {
+            [function ($query) use ($request) {
                 if (($term = $request->term)) {
                     $query->orWhere('name', 'LIKE', '%' . $term . '%')->get();
                 }

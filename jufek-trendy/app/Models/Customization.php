@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class Customization extends Model
-
 {
     //attributes id, name, size, location, price, product_id, image, timestamps
     protected $fillable = ['name', 'size', 'location', 'price', 'image' ,'product_id'];

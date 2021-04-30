@@ -2,9 +2,9 @@
 //Autor: Juan Camilo Echeverri
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-
 
 class AdminHomeController extends Controller
 {
@@ -12,7 +12,7 @@ class AdminHomeController extends Controller
     {
         $this->middleware('auth');
         $this->middleware(function ($request, $next) {
-            if(Auth::user()->getRole()=="user"){
+            if (Auth::user()->getRole()=="user") {
                 return redirect()->route('home.index');
             }
 
