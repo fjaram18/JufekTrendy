@@ -14,7 +14,7 @@ class CustomizationController extends Controller
     {
         try {
             $data = [];
-            $data["title"] = "Customizations";
+            $data["title"] = __('messages.customization');
             $product = Product::where('id', '=', $id)->with('customizations')->get();
             $data["product"] = $product;
 
@@ -29,7 +29,7 @@ class CustomizationController extends Controller
 
 
             $data = [];
-            $data["title"] = "Customizable products";
+            $data["title"] = __('messages.customizable_products');
             $products = Product::has('customizations')->get();
             $data["products"] = $products;
 

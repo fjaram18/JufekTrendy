@@ -26,7 +26,7 @@ class ProductController extends Controller
     public function list()
     {
         $data = [];
-        $data["title"] = "Avaible Products";
+        $data["title"] = __('messages.avaible_products');
         $products = Product::where('stock', '>', 0)->simplePaginate(6);
         $data["products"] = $products;
 

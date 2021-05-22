@@ -11,6 +11,7 @@ return [
     'aboutJufek' => 'About Jufek Trendy',
     'aboutJufekMessage' => 'Jufek Trendy is Comfort and Personality',
     'admin_menu' => 'Admin Menu',
+    'customizable_products' => 'Customizable products',
   
      //Images
     'image_error' => 'Image not found',
@@ -43,6 +44,7 @@ return [
     'pick_customization' => 'Pick a customization to personalize your product...',
     'order_created' => 'Order created',
     'state' => 'State',
+    'avaible_products' => 'Avaible products',
 
     //Home
     'welcome_message' => 'Welcome to Jufek Trendy',

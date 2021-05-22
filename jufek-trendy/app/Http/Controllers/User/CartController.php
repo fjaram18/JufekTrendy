@@ -34,7 +34,7 @@ class CartController extends Controller
                 }
             }
         }
-        $data["title"] = "Shopping Cart";
+        $data["title"] = __('messages.shopping_cart');
         $data["products"] = $products;
         $data["productsInCart"] = $listProductsInCart;
         $data["amountInCart"] = $listAmountsInCart;
