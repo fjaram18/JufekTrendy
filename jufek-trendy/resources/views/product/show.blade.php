@@ -5,6 +5,7 @@
 @section('content')
 <!-- Author: Federico Jaramillo -->
 <div class="container">
+{{ Breadcrumbs::render('product', $data["product"]) }}
     <div class="card">
         <div class="card-header text-white bg-secondary">
             <div class="row justify-content-start">

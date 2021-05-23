@@ -9,7 +9,7 @@
             <div class="card">
                 <div class="card-header text-white bg-secondary">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-5" style="text-align: left;">
                             <h1>{{__('messages.shopping_cart')}}</h1>
                         </div>
                     </div>

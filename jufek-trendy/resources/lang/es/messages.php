@@ -5,18 +5,18 @@ return [
     //Layout messages
     'login' => 'Iniciar Sesión',
     'register' => 'Registrarse',
-    'logout' => 'Cerrar Sesión',
+    'logout' => 'Logout',
     'location' => 'Localización',
     'around' => 'En la WEB',
     'aboutJufek' => 'Acerca de Jufek Trendy',
     'aboutJufekMessage' => 'Jufek Trendy es comodidad y personalidad',
-    'admin_menu' => 'Menu de Administrador',
+    'admin_menu' => 'Menu de Admin',
 
      //Images
     'image_error' => 'Imagen no encontrada',
 
     //Shopping Cart
-    'shopping_cart' => 'Carrito de compras',
+    'shopping_cart' => 'Carro de Compras',
     'remove_all' => 'Remover todos los productos del carrito',
     'update_amount' => 'Actualizar monto',
     'quantity' => 'Cantidad',
@@ -32,7 +32,7 @@ return [
     'no_stock' => 'El artículo no está disponible en esta cantidad',
     'no_stock2' => 'El artículo no está disponible',
     'price_total' => 'Precio Total',
-    'cart' => 'Carito',
+    'cart' => 'Carro',
     'avaible_products' => 'Todos los productos',
     'size' => 'Tamaño',
     'add_to_cart' => 'Añadir al carrito',
@@ -52,6 +52,7 @@ return [
 
     //Search results
     'search_results' => 'Resultados de busqueda para',
+    'search_products' => 'Buscar productos',
 
     //Index Admin
     'product' => 'Producto',
