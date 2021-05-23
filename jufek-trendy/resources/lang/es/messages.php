@@ -38,7 +38,7 @@ return [
     'add_to_cart' => 'Añadir al carrito',
     'update_cart' => 'Actualizar carrito',
     'delete_from_cart' => 'Eliminar del carrito',
-    'customize' => 'Personalizar producto',
+    'customize' => 'Personalizar',
     'add_customize' => 'Agregar producto personalizado',
     'pick_customization' => 'Elija una personalización para personalizar su producto ...',
     'order_created' => 'Crear pedido',
@@ -54,15 +54,16 @@ return [
     'search_results' => 'Resultados de busqueda para',
     'search_products' => 'Buscar productos',
 
+    //Breadcrumbs
+    'home' => 'Inicio',
+
     //Index Admin
     'product' => 'Producto',
     'customization' => 'Personalización',
     'order' => 'Pedido',
     'category' => 'Categoria',
     'item' => 'Articulo',
-    'welcome_admin_message' => 'Bienvenido al menú de administrador',
-
-    
+    'welcome_admin_message' => 'Bienvenido al menú de administrador',    
 
     // Menu Admin Product
     'create_products' => 'Crear Productos',

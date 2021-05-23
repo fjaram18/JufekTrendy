@@ -38,7 +38,7 @@ return [
     'add_to_cart' => 'Add to Cart',
     'update_cart' => 'Update Cart',
     'delete_from_cart' => 'Delete from cart',
-    'customize' => 'Customize product',
+    'customize' => 'Customize',
     'add_customize' => 'Add customized product',
     'pick_customization' => 'Pick a customization to personalize your product...',
     'order_created' => 'Order created',
@@ -54,6 +54,10 @@ return [
     'search_results' => 'Search results for',
     'search_products' => 'Search products',
 
+    //Breadcrumbs
+    'home' => 'Home',
+    'products' => 'Products',
+
     //Index Admin
     'product' => 'Product',
     'customization' => 'Customization',
@@ -61,8 +65,6 @@ return [
     'category' => 'Category',
     'item' => 'Item',
     'welcome_admin_message' => 'Welcome to Admin Menu',
-
-    
 
     // Menu Admin Product
     'create_products' => 'Create Products',
