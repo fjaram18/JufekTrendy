@@ -11,8 +11,7 @@ return [
     'aboutJufek' => 'Acerca de Jufek Trendy',
     'aboutJufekMessage' => 'Jufek Trendy es comodidad y personalidad',
     'admin_menu' => 'Menu de Administrador',
-    'customizable_products' => 'Productos perzonalizables',
-  
+
      //Images
     'image_error' => 'Imagen no encontrada',
 
@@ -48,7 +47,8 @@ return [
 
     //Home
     'welcome_message' => 'Bienvenido a Jufek Trendy',
-    'customizable_products' => 'Personalizar productos',
+    'customizable_products' => 'Productos personalizables',
+    'allied_products' => 'Productos aliados',
 
     //Search results
     'search_results' => 'Resultados de busqueda para',
@@ -149,7 +149,7 @@ return [
     'order_user' => 'Usuario',
 
     //orders
-    'my_order' => 'Mis Pedidos',
+    'my_order' => 'Mis pedidos',
     'view' => 'Ver',
     'export' => 'Exportar todas las ordenes',
     'print' => 'Imprimir PDF',
