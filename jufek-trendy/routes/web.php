@@ -46,6 +46,9 @@ Route::get('/order/export', [App\Http\Controllers\User\OrderController::class, '
 //Route search results
 Route::get('/search/index', [App\Http\Controllers\User\SearchController::class, 'index'])->name('search.index');
 
+//Route allied products
+Route::get('/ally/index', [App\Http\Controllers\User\AllyController::class, 'index'])->name('ally.index');
+
 // Auth
 Auth::routes();
 
