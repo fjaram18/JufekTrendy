@@ -39,8 +39,6 @@ Route::get('/order/save', [App\Http\Controllers\User\OrderController::class, 'sa
 Route::get('/order/show/{id}', [App\Http\Controllers\User\OrderController::class, 'show'])->name("order.show");
 Route::get('/order/cancel/{id}', [App\Http\Controllers\User\OrderController::class, 'cancel'])->name("order.cancel");
 Route::get('/order/list', [App\Http\Controllers\User\OrderController::class, 'list'])->name("order.list");
-Route::get('/order/createPDF/{id}', [App\Http\Controllers\User\OrderController::class, 'createPDF'])->name("order.createPDF");
-Route::get('/order/downloadPDF/{id}', [App\Http\Controllers\User\OrderController::class, 'downloadPDF'])->name("order.downloadPDF");
 Route::get('/order/export', [App\Http\Controllers\User\OrderController::class, 'export'])->name("order.export");
 
 //Route search results

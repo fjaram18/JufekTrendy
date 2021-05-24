@@ -15,9 +15,9 @@
         <div class="card-body">
             @foreach ($data["responseBody"] as $response)
             <div class="row justify-content-center">
-                <b>{{__('messages.product_name')}}: </b>&nbsp {{ $response->question }} 
+                <b>{{__('messages.product_name')}}: </b>&nbsp {{ $response->name }} 
                 &nbsp&nbsp&nbsp
-                <b> {{__('messages.allied_products')}}: </b>&nbsp {{ $response->answers->answer_a }}
+                <b> {{__('messages.allied_products')}}: </b>&nbsp {{ $response->price }}
             </div>
             <hr>
             @endforeach
