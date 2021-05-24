@@ -27,7 +27,7 @@ class CreateItemsTable extends Migration
             $table->bigInteger('customization_id')->unsigned()->nullable();
             $table->foreign('customization_id')->references('id')->on('customizations')->onDelete('cascade')->nullable();
             $table->bigInteger('order_id')->unsigned();
-            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');;
             $table->timestamps();
         });
     }

@@ -11,7 +11,7 @@ class Item extends Model
 {
     use HasFactory;
 
-    //attributes id, amount, subtotal, created_at, updated_at
+    //attributes id, amount, subtotal, order_id, product_id, customization_id created_at, updated_at
     protected $fillable = [
         'amount','subtotal', 'order_id', 'product_id', 'customization_id'
     ];
@@ -52,6 +52,36 @@ class Item extends Model
     public function setSubtotal($subtotal)
     {
         $this->attributes['subtotal'] = $subtotal;
+    }
+
+    public function getOrderId()
+    {
+        return $this->attributes['order_id'];
+    }
+
+    public function setOrderId($order_id)
+    {
+        $this->attributes['order_id'] = $order_id;
+    }
+
+    public function getProductId()
+    {
+        return $this->attributes['product_id'];
+    }
+
+    public function setProductId($product_id)
+    {
+        $this->attributes['product_id'] = $product_id;
+    }
+
+    public function getCustomizationId()
+    {
+        return $this->attributes['customization_id'];
+    }
+
+    public function setCustomizationId($customization_id)
+    {
+        $this->attributes['customization_id'] = $customization_id;
     }
 
     public function order()

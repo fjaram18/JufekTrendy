@@ -24,7 +24,7 @@ class SearchController extends Controller
             ->simplePaginate(6);
 
         $data['products'] = $products;
-        $data['title'] = "Search results";
+        $data['title'] = __('messages.search_results');
         $data['term'] = $request->term;
 
         return view('search.index')->with("data", $data);

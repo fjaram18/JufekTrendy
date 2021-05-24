@@ -11,6 +11,7 @@ return [
     'aboutJufek' => 'Acerca de Jufek Trendy',
     'aboutJufekMessage' => 'Jufek Trendy es comodidad y personalidad',
     'admin_menu' => 'Menu de Administrador',
+    'customizable_products' => 'Productos perzonalizables',
   
      //Images
     'image_error' => 'Imagen no encontrada',
@@ -43,6 +44,7 @@ return [
     'pick_customization' => 'Elija una personalización para personalizar su producto ...',
     'order_created' => 'Crear pedido',
     'state' => 'Estado',
+    'avaible_products' => 'Productos disponibles',
 
     //Home
     'welcome_message' => 'Bienvenido a Jufek Trendy',
