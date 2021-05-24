@@ -5,6 +5,7 @@
 @section('content')
 <!-- Author: Federico Jaramillo -->
 <div class="container">
+    {{ Breadcrumbs::render('search', $data['term']) }}
     <div class="card">
         <div class="card-header text-white bg-secondary">
             <div class="row justify-content-center">

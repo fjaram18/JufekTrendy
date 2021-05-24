@@ -46,7 +46,7 @@
                                         <span class="fas fa-search"></span>
                                     </button>
                                 </span>
-                                <input type="text" class="form-control mr-2" name="term" placeholder="Search products" id="term">
+                                <input type="text" class="form-control mr-2" name="term" placeholder="{{__('messages.search_products')}}" id="term">
                             </div>
                         </form>
 
@@ -67,12 +67,13 @@
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                            {{ Config::get('languages')[App::getLocale()] }}
+                            <img class="flag" width="27" height="18" src="{{asset('/img/flags/').'/'.Config::get('languages')[App::getLocale()].'.png' }}" >
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             @foreach (Config::get('languages') as $lang => $language)
                                 @if ($lang != App::getLocale())
                                     <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}">
+                                    <img class="flag" width="27" height="18" src="{{asset('/img/flags/').'/'.$language.'.png' }}" >
                                         {{$language}}
                                     </a>
                                 @endif
@@ -86,8 +87,6 @@
     <header class="masthead bg-primary text-center">
         @yield('content')
     </header>
-
-
     <!-- Footer-->
     <footer class="footer text-center">
         <div class="container">

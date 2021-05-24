@@ -52,6 +52,7 @@ return [
 
     //Search results
     'search_results' => 'Search results for',
+    'search_products' => 'Search products',
 
     //Index Admin
     'product' => 'Product',
