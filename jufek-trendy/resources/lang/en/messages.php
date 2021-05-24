@@ -168,7 +168,16 @@ return [
     // Forms
     'send' => 'SEND',
     'go_back' => 'Go Back',
- 
+
+    // Currency
+    'currency' => 'Value Of Different Currencies',
+    'value_dolar' => 'Dollar Value In Colombia',
+    'value_euro' => 'Euro Value In Colombia',
+    'value_mxn' => 'Mexican Peso Value In Colombia',
+    'date' => 'DATE',
+    'dolar' => 'DOLAR',
+    'eur' => 'EURO',
+    'mxn' => 'MXN',
 
 
 ];
