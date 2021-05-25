@@ -34,6 +34,7 @@ class AdminCustomizationController extends Controller
         ];
 
         $data["title"] = __('messages.menu_customizations');
+        $data["id"] = "customizationmenu";
 
         return view('admin.admin_menu')->with("data", $data);
     }

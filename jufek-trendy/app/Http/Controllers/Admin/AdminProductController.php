@@ -32,6 +32,7 @@ class AdminProductController extends Controller
         ];
 
         $data["title"] = __('messages.menu_products');
+        $data["id"] = "productmenu";
 
         return view('admin.admin_menu')->with("data", $data);
     }

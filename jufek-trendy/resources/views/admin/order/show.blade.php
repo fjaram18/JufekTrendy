@@ -5,6 +5,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+        {{ Breadcrumbs::render('showorder', $data["order"] ) }}
             <div class="card">
                 <div class="h1">
                     <div class="card-header">{{ $data["order"]->getId() }}</div>
@@ -19,9 +20,6 @@
                 </div>
                 <div class="block">
                     <a href="{{ route('admin.order.delete', ['id' => $data["order"]->getid()])}}" type="submit" class="btn btn-danger"> {{__('messages.order_remove')}}</a>
-                </div>
-                <div class='mx-auto' style="padding-right: 550px;"">
-                    <a href="{{route('admin.order.list')}}" class="btn btn-secondary " type="button"> {{__('messages.go_back')}}  </a>
                 </div>
             </div>
         </div>

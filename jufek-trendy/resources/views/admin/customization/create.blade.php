@@ -5,6 +5,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            {{ Breadcrumbs::render("createcustomization") }}
             @include('util.message')
             <div class="card">
                 <h1>
@@ -49,9 +50,6 @@
                             </select>
                         </div>                                       
                         <button type="submit" class="btn btn-primary my-1"> {{__('messages.send')}}  </button>
-                        <div class="mx-auto" style="padding-right: 550px;">
-                            <a href="{{route('admin.customization.menu')}}" class="btn btn-secondary " type="button"> {{__('messages.go_back')}}  </a>
-                        </div>
                     </form>
                 </div>
             </div>

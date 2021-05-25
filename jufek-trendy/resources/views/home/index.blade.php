@@ -26,7 +26,7 @@
 <div class="container d-flex align-items-center flex-column">
     <img class="img-fluid" width="350" height="350" src="{{ asset('/img/logo/logoJufexTrendy.jpeg') }}" alt="" />
 </div>
-<br>
+<br><br><br>
 <div class="row justify-content-center">
     <a href="{{ route('ally.index') }}" class="btn btn-primary" type="button">{{__('messages.allied_products')}}</a>
 </div>
