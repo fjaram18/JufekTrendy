@@ -171,7 +171,16 @@ return [
     // Forms
     'send' => 'Enviar',
     'go_back' => 'Regresar',
- 
+
+    // Currency APIs
+    'currency' => 'Valor de diferentes divisas',
+    'value_dolar' => 'Valor del Dolar en Colombia',
+    'value_euro' => 'Valor del Euro en Colombia',
+    'value_mxn' => 'Valor del Peso Mexicano en Colombia',
+    'date' => 'FECHA',
+    'dolar' => 'DOLAR',
+    'eur' => 'EURO',
+    'mxn' => 'MXN',
 
 
 ];

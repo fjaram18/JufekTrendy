@@ -96,3 +96,6 @@ Route::get('/admin/item/delete/{id}', [App\Http\Controllers\Admin\AdminItemContr
 
 // Routes Lang
 Route::get('lang/{lang}',[App\Http\Controllers\LanguageController::class, 'switchLang'])->name('lang.switch');
+
+// Routes Currency
+Route::get('/', [App\Http\Controllers\CurrencyController::class, 'index'])->name("currency.index"):
