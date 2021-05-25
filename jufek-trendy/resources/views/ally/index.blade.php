@@ -15,14 +15,21 @@
         <div class="card-body">
             @foreach ($data["responseBody"] as $response)
             <div class="row justify-content-center">
-                <b>{{__('messages.product_name')}}: </b>&nbsp {{ $response->name }} 
+                <b>{{__('messages.product_name')}}: </b>&nbsp {{ $response->name }}
                 &nbsp&nbsp&nbsp
-                <b> {{__('messages.allied_products')}}: </b>&nbsp {{ $response->price }}
+                <b>{{__('messages.product_brand')}}: </b>&nbsp {{ $response->brand }}
+                &nbsp&nbsp&nbsp
+                <b>{{__('messages.product_category')}}: </b>&nbsp {{ $response->category }}
+                &nbsp&nbsp&nbsp
+                <b> {{__('messages.product_price')}}: </b>&nbsp ${{ $response->price }}
             </div>
+            @if (!$loop->last)
             <hr>
+            @endif
             @endforeach
         </div>
         <div class="card-footer text-white bg-secondary" style="text-align: right">
+            <b>{{__('messages.more_at')}}</b><a href="https://www.google.com">Seed shop</a>
         </div>
     </div>
-@endsection
+    @endsection
