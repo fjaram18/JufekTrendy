@@ -30,7 +30,7 @@
                     <table class="table text-center">
                         <thead>
                             <tr>
-                                <td colspan="3" style="background-color: #62a9af; color:#ffffff"><strong>{{__('messages.value_euro')}}</strong></td>
+                                <td colspan="3" style="background-color: #62a9af; color:#000000"><strong>{{__('messages.value_euro')}}</strong></td>
                             </tr>
                             <tr>
                                 <th>{{__('messages.date')}}</th>

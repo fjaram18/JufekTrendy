@@ -10,7 +10,7 @@ class CurrencyController extends Controller
         $resEuro = Http::get('https://api.currencyscoop.com/v1/latest/?base=EUR&api_key=893eb7e43a1218c907541e60ce39885a');
         $euro = $resEuro->json();
 
-        $resDolar = Http::get('https://trm-colombia.vercel.app/?date=2021-05-23');
+        $resDolar = Http::get('https://trm-colombia.vercel.app/?date=2021-05-25');
         $dolar = $resDolar->json();
 
         $resPesosmxn = Http::get('https://api.currencyscoop.com/v1/latest/?base=MXN&api_key=893eb7e43a1218c907541e60ce39885a');

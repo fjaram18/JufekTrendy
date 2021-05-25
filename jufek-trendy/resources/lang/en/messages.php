@@ -169,7 +169,7 @@ return [
     'send' => 'SEND',
     'go_back' => 'Go Back',
 
-    // Currency
+    // Currency APIs
     'currency' => 'Value Of Different Currencies',
     'value_dolar' => 'Dollar Value In Colombia',
     'value_euro' => 'Euro Value In Colombia',

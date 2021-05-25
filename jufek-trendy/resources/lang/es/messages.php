@@ -166,7 +166,7 @@ return [
     'send' => 'Enviar',
     'go_back' => 'Regresar',
 
-    // Currency
+    // Currency APIs
     'currency' => 'Valor de diferentes divisas',
     'value_dolar' => 'Valor del Dolar en Colombia',
     'value_euro' => 'Valor del Euro en Colombia',
@@ -174,7 +174,7 @@ return [
     'date' => 'FECHA',
     'dolar' => 'DOLAR',
     'eur' => 'EURO',
-    'mxn' => 'MXN', 
+    'mxn' => 'MXN',
 
 
 ];
