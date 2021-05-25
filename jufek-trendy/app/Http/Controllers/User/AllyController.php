@@ -14,7 +14,7 @@ class AllyController extends Controller
         $data = [];
         $data["title"] = __('messages.allied_products');
 
-        $response = Http::get('http://127.0.0.1:8001/api/products', [
+        $response = Http::get('http://ec2-18-209-55-41.compute-1.amazonaws.com/public/api/seed', [
             'limit' => 10,
         ]);
 

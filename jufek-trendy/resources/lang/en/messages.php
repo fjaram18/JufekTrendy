@@ -49,6 +49,7 @@ return [
     'welcome_message' => 'Welcome to Jufek Trendy',
     'customizable_products' => 'Customizable products',
     'allied_products' => 'Allied products',
+    'more_at' => 'Find more information at: ',
 
     //Search results
     'search_results' => 'Search results for',
@@ -120,6 +121,7 @@ return [
     'product_image' => 'Image',
     'product_description' => 'Description',
     'product_category' => 'Category',
+    'product_brand' => 'Brand',
 
     //CustomizationAdminView
     'create_customization' => 'Create Customization',

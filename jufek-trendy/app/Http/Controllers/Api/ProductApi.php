@@ -10,6 +10,6 @@ class ProductApi extends Controller
 {
     public function index()
     {
-        return ProductResource::collection(Product::all()->sortBy('price')->take(2));
+        return ProductResource::collection(Product::all()->sortBy('price'));
     }
 }

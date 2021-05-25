@@ -49,6 +49,7 @@ return [
     'welcome_message' => 'Bienvenido a Jufek Trendy',
     'customizable_products' => 'Productos personalizables',
     'allied_products' => 'Productos aliados',
+    'more_at' => 'Encuentra más información en: ',
 
     //Search results
     'search_results' => 'Resultados de busqueda para',
@@ -114,6 +115,7 @@ return [
     'product_image' => 'Imagen',
     'product_description' => 'Descripción',
     'product_category' => 'Categoria',
+    'product_brand' => 'Marca',
 
     //CustomizationAdminView
     'create_customization' => 'Crear Personalización',
@@ -128,7 +130,7 @@ return [
     'customization_name' => 'Nombre',
     'customization_size' => 'Tamaño',
     'customization_location' => 'Ubicación',
-    'customization_price' => 'Pricio',
+    'customization_price' => 'Precio',
     'customization_image' => 'Imagen',
     'customization_product' => 'Producto',
     
