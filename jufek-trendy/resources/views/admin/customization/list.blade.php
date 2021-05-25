@@ -4,6 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            {{ Breadcrumbs::render("listcustomization") }}
             <div class="card">
                 <h1>
                     <div class="card-header">{{__('messages.list_customizations')}}</div>
@@ -29,16 +30,13 @@
                             </tbody>
                         </table>
                         <div class="row justify-content-center">
-                            <div style="padding-right: 50px;" >
-                                <a href="{{route('admin.customization.menu')}}" class="btn btn-secondary " type="button"> {{__('messages.go_back')}}  </a>
-                            </div>
                             <div  style="padding-right: 30px;">
                                 <a href="{{route('admin.customization.sort', ['sort' => "id"])}}" class="btn btn-primary" type="button"> {{__('messages.sort_id')}}  </a>
                             </div>
                             <div  style="padding-right: 30px;">
                                 <a href="{{route('admin.customization.sort', ['sort' => "name"])}}" class="btn btn-primary " type="button"> {{__('messages.sort_name')}}  </a>
                             </div>
-                            <div  style="padding-right: 50px;">
+                            <div>
                                 <a href="{{route('admin.customization.sort', ['sort' => "price"])}}" class="btn btn-primary " type="button"> {{__('messages.sort_price')}}  </a>
                             </div>
                         </div>

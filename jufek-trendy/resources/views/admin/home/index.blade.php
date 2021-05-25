@@ -5,6 +5,7 @@
   <div class="row justify-content-center">
     <h1>{{__('messages.welcome_admin_message')}}, {{ Auth::user()->getName() }}!</h1>
   </div>
+    <br><br>
     <div class="row gx-5">
       <div class="d-grid gap-2 d-md-block mx-auto text-uppercase mb-4" >
         <a href="{{route('admin.product.menu')}}" class="btn btn-primary btn-lg"type="button">{{__('messages.product')}}</a>

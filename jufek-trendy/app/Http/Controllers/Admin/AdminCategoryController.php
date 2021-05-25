@@ -31,6 +31,7 @@ class AdminCategoryController extends Controller
             ["route" => "admin.category.list", "tittle" => __('messages.list_categories')],
         ];
         $data["title"] = __('messages.menu_categories');
+        $data["id"] = "categorymenu";
 
         return view('admin.admin_menu')->with("data", $data);
     }
