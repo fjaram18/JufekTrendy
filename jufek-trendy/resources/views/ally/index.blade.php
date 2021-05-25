@@ -22,6 +22,8 @@
                 <b>{{__('messages.product_category')}}: </b>&nbsp {{ $response->category }}
                 &nbsp&nbsp&nbsp
                 <b> {{__('messages.product_price')}}: </b>&nbsp ${{ $response->price }}
+                &nbsp&nbsp&nbsp
+                <a href="http://seedshop.ga/public/shop/show/{{ $response->id }}">{{__('messages.view_store')}}</a>
             </div>
             @if (!$loop->last)
             <hr>
@@ -29,7 +31,7 @@
             @endforeach
         </div>
         <div class="card-footer text-white bg-secondary" style="text-align: right">
-            <b>{{__('messages.more_at')}}</b><a href="https://www.google.com">Seed shop</a>
+            <b>{{__('messages.more_at')}}</b><a href="http://seedshop.ga/public/">Seed shop</a>
         </div>
     </div>
     @endsection

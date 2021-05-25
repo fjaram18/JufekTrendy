@@ -11,6 +11,7 @@ return [
     'aboutJufek' => 'About Jufek Trendy',
     'aboutJufekMessage' => 'Jufek Trendy is Comfort and Personality',
     'admin_menu' => 'Admin Menu',
+    'view_store' => 'Go to product website',
   
      //Images
     'image_error' => 'Image not found',
@@ -87,7 +88,6 @@ return [
     'list_categories' => 'List Categories',
     'menu_categories' => 'Category Menu',
 
-
     // Menu Admin Item
     'create_items' => 'Create Items',
     'list_items' => 'List Items',
@@ -131,7 +131,6 @@ return [
     'customization_remove' => 'Remove Customization',
 
     //Customization attributes
-    
     'customization_id' => 'ID',
     'customization_name' => 'Name',
     'customization_size' => 'Size',
@@ -146,8 +145,6 @@ return [
     'order_succes' => 'Order successfully created!!',
     'order_delete' => 'Order successfully deleted!!',
     'order_remove' => 'Remove Order',
-    
-    
 
     //Order attributes
     'order_id' => 'Order ID',
@@ -162,7 +159,6 @@ return [
     'export' => 'Export all orders',
     'print' => 'Print PDF',
     'cancel_order' => 'Cancel Order',
-
 
     //Sort
     'sort_id' => 'Sort By Id',
