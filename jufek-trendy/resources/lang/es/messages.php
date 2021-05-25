@@ -11,6 +11,7 @@ return [
     'aboutJufek' => 'Acerca de Jufek Trendy',
     'aboutJufekMessage' => 'Jufek Trendy es comodidad y personalidad',
     'admin_menu' => 'Menu de Admin',
+    'view_store' => 'Ir a la página del producto',
 
      //Images
     'image_error' => 'Imagen no encontrada',
@@ -86,7 +87,6 @@ return [
     'list_categories' => 'Listar Categorias',
     'menu_categories' => 'Menu de Categorias',
 
-
     //CategoryAdminView
     'create_category' => 'Crear Categoria',
     'list_categories' => 'Listar Categoria',
@@ -125,7 +125,6 @@ return [
     'customization_remove' => 'Eliminar Personalización',
 
     //Customization attributes
-    
     'customization_id' => 'ID',
     'customization_name' => 'Nombre',
     'customization_size' => 'Tamaño',
@@ -140,8 +139,6 @@ return [
     'order_succes' => 'Pedido creado exitosamente!!',
     'order_delete' => 'Pedido eliminado exitosamente!!',
     'order_remove' => 'Eliminar Pedido',
-    
-    
 
     //Order attributes
     'order_id' => 'Pedido ID',
@@ -158,7 +155,6 @@ return [
     'export' => 'Exportar todas las ordenes',
     'print' => 'Imprimir PDF',
     'cancel_order' => 'Cancelar Pedido',
-
 
     //Sort
     'sort_id' => 'Ordenar por ID',
