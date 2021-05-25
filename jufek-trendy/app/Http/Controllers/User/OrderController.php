@@ -17,7 +17,6 @@ use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
 use Exception;
-use PDF;
 
 class OrderController extends Controller
 {
@@ -122,33 +121,6 @@ class OrderController extends Controller
         }
     }
 
-    public function createPDF($id)
-    {
-        $data = [];
-        $order = Order::where('id', '=', $id)->with(['items', 'items.product', 'items.customization'])->get();
-        $data["order"] = $order;
-        $data["title"] = __('messages.order');
-
-        view()->share("data", $data);
-
-        $pdf = PDF::loadView('order.downloadPDF', $data);
-
-        return $pdf->download("order.pdf");
-    }
-
-    public function downloadPDF($id)
-    {
-        try {
-            $data = [];
-            $order = Order::where('id', '=', $id)->with(['items', 'items.product', 'items.customization'])->get();
-            $data["order"] = $order;
-            $data["title"] = __('messages.order');
-
-            return view('order.downloadPDF')->with("data", $data);
-        } catch (Exception $e) {
-            return redirect()->route('home.index');
-        }
-    }
     public function export()
     {
         return Excel::download(new OrdersExport, 'orders.xlsx');

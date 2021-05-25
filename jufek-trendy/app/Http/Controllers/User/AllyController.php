@@ -14,8 +14,7 @@ class AllyController extends Controller
         $data = [];
         $data["title"] = __('messages.allied_products');
 
-        $response = Http::get('https://quizapi.io/api/v1/questions', [
-            'apiKey' => '1nrZdGSudtByLbmxfaSvGKWAFifUpC1hnzSrEiWm',
+        $response = Http::get('http://127.0.0.1:8001/api/products', [
             'limit' => 10,
         ]);
 

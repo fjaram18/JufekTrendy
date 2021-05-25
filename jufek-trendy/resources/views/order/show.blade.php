@@ -12,7 +12,7 @@
                 <h3>{{__('messages.order')}}</h3>
             </div>
             <div class="row justify-content-center">
-                <b><a href="{{ route('order.createPDF', ['id'=> $data['order'][0]->getId()]) }}">{{__('messages.print')}}</a></b>
+                <b><a href="" onClick="printPDF()">Print PDF</a></b>
             </div>
         </div>
         <div class="card-body">
@@ -66,4 +66,9 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    function printPDF() {
+        window.print();  
+    }
+</script>
 @endsection
