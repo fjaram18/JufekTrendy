@@ -23,7 +23,7 @@
                         @csrf
                         <div class="mb-3">
                             <label class="form-label" >{{__('messages.product_name')}}</label>
-                            <input required type="text" class="form-control" placeholder="Tshirt LSD" name="name" value="{{ old('name') }}" />
+                            <input required type="text" class="form-control" placeholder="{{__('messages.product_name')}}" name="name" value="{{ old('name') }}" />
                         </div>                
                         <div class="mb-3">
                             <label class="form-label" >{{__('messages.product_size')}}</label>
@@ -37,11 +37,11 @@
                         </div>    
                         <div class="mb-3">
                             <label class="form-label" >{{__('messages.product_stock')}}</label>
-                            <input required type="number" class="form-control" placeholder="5" name="stock" value="{{ old('stock') }}" />
+                            <input required type="number" class="form-control" placeholder="{{__('messages.product_stock')}}" name="stock" value="{{ old('stock') }}" />
                         </div>
                         <div class="mb-3">
                             <label class="form-label" >{{__('messages.product_price')}}</label>
-                            <input required type="number" class="form-control" placeholder="100" name="price" value="{{ old('price') }}" min="0" max="999999.9999" step="any"/>
+                            <input required type="number" class="form-control" placeholder="{{__('messages.product_price')}}" name="price" value="{{ old('price') }}" min="0" max="999999.9999" step="any"/>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" >{{__('messages.product_image')}}</label>
@@ -49,7 +49,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label" >{{__('messages.product_description')}}</label>
-                            <input required type="text" class="form-control" placeholder="Beautiful Tshirt" name="description" value="{{ old('description') }}" />
+                            <input required type="text" class="form-control" placeholder="{{__('messages.product_description')}}" name="description" value="{{ old('description') }}" />
                         </div>
                         <div class="mb-3">
                             <label class="form-label" >{{__('messages.product_category')}}</label>

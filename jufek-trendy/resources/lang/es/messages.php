@@ -58,6 +58,11 @@ return [
 
     //Breadcrumbs
     'home' => 'Inicio',
+    'products' => 'Productos',
+
+    //Currency
+    'currency_rate' => 'Tasa de Cambios',
+    'equal_to' => ' es igual a ',
 
     //Index Admin
     'product' => 'Producto',

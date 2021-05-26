@@ -28,6 +28,7 @@
 </div>
 <br><br><br>
 <div class="row justify-content-center">
-    <a href="{{ route('ally.index') }}" class="btn btn-primary" type="button">{{__('messages.allied_products')}}</a>
+    <a style="margin-right: 20px;" href="{{ route('ally.index') }}" class="btn btn-primary" type="button">{{__('messages.allied_products')}}</a>
+    <a href="{{ route('currency.index') }}" class="btn btn-primary" type="button">{{__('messages.currency_rate')}}</a>
 </div>
 @endsection

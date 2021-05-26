@@ -55,6 +55,12 @@ Breadcrumbs::for('allied', function (BreadcrumbTrail $trail) {
     $trail->push(__('messages.allied_products'), route('ally.index'));
 });
 
+// Home > currency rates products
+Breadcrumbs::for('rates', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(__('messages.currency_rate'), route('currency.index'));
+});
+
 // Home > [Search]
 Breadcrumbs::for('search', function (BreadcrumbTrail $trail, $term) {
     $trail->parent('home');

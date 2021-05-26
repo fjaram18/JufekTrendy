@@ -23,19 +23,19 @@
                         @csrf
                         <div class="mb-3">
                             <label class="form-label" >{{__('messages.customization_name')}}</label>
-                            <input required type="text" class="form-control" placeholder="Dragon" name="name" value="{{ old('name') }}" />
+                            <input required type="text" class="form-control" placeholder="{{__('messages.customization_name')}}" name="name" value="{{ old('name') }}" />
                         </div>                                        
                         <div class="mb-3">
                             <label class="form-label" >{{__('messages.customization_size')}}</label>
-                            <input required type="number" class="form-control" placeholder="30" name="size" value="{{ old('size') }}" />
+                            <input required type="number" class="form-control" placeholder="{{__('messages.customization_size')}}" name="size" value="{{ old('size') }}" />
                         </div>                                        
                         <div class="mb-3">
                             <label class="form-label" >{{__('messages.customization_location')}}</label>
-                            <input required type="text" class="form-control" placeholder="Up-Right" name="location" value="{{ old('location') }}" />
+                            <input required type="text" class="form-control" placeholder="{{__('messages.customization_location')}}" name="location" value="{{ old('location') }}" />
                         </div>                                        
                         <div class="mb-3">
                             <label class="form-label" >{{__('messages.customization_price')}}</label>
-                            <input required type="number" class="form-control" placeholder="100" name="price" value="{{ old('price') }}" min="0" max="999999.9999" step="any" />
+                            <input required type="number" class="form-control" placeholder="{{__('messages.customization_price')}}" name="price" value="{{ old('price') }}" min="0" max="999999.9999" step="any" />
                         </div>
                         <div class="mb-3">
                             <label class="form-label" >{{__('messages.customization_image')}}</label>

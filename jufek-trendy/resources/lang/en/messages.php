@@ -60,6 +60,10 @@ return [
     'home' => 'Home',
     'products' => 'Products',
 
+    //Currency
+    'currency_rate' => 'Currency Rates',
+    'equal_to' => ' is equal to ',
+
     //Index Admin
     'product' => 'Product',
     'customization' => 'Customization',

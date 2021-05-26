@@ -47,6 +47,9 @@ Route::get('/search/index', [App\Http\Controllers\User\SearchController::class, 
 //Route allied products
 Route::get('/ally/index', [App\Http\Controllers\User\AllyController::class, 'index'])->name('ally.index');
 
+//Route allied products
+Route::get('/currency/index', [App\Http\Controllers\User\CurrencyController::class, 'index'])->name('currency.index');
+
 // Auth
 Auth::routes();
 

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
-use GuzzleHttp\Client;
 
 class AllyController extends Controller
 {
